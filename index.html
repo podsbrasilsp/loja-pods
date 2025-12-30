@@ -1,27 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Catálogo de Pods | @pods.doribeiro</title>
+  <title>Pods do Ribeiro | @pods.doribeiro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0b0b0b;
-      color: #ffffff;
+      background: linear-gradient(180deg, #0b0b0b, #111);
+      color: #fff;
       padding: 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
-    h1 {
+    h1, h2 {
       text-align: center;
-      margin-bottom: 5px;
     }
     .insta {
       text-align: center;
       color: #aaa;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     .alert {
       text-align: center;
@@ -29,20 +27,49 @@
       font-size: 14px;
       margin-bottom: 25px;
     }
-    .promo {
-      background: #00ff88;
-      color: #000;
-      text-align: center;
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 30px;
+    .section {
+      margin-top: 40px;
     }
-    h2 {
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 0 15px #000;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: #00ffcc;
+    }
+    .price {
+      color: #00ff88;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .sold {
+      font-size: 13px;
+      color: #bbb;
+      margin-top: 5px;
+    }
+    .offer {
+      background: linear-gradient(45deg, #00ff88, #00ccff);
+      color: #000;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      box-shadow: 0 0 25px #000;
+    }
+    .catalog h3 {
+      margin-top: 25px;
       border-bottom: 1px solid #333;
       padding-bottom: 5px;
-      margin-top: 35px;
       color: #00ffcc;
     }
     ul {
@@ -52,154 +79,116 @@
     li {
       padding: 6px 0;
       border-bottom: 1px dotted #333;
-      font-size: 15px;
     }
     .btn {
       display: block;
-      margin: 40px auto 10px;
-      text-align: center;
-      width: fit-content;
-      padding: 14px 30px;
+      margin: 50px auto 10px;
+      padding: 16px 35px;
       background: linear-gradient(45deg, #00ff88, #00ccff);
       color: #000;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 10px;
-      font-size: 16px;
+      border-radius: 12px;
+      font-size: 18px;
+      text-align: center;
+      width: fit-content;
+    }
+    .obs {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-<h1>Catálogo de Pods</h1>
+<h1>• PODS DO RIBEIRO •</h1>
 <div class="insta">@pods.doribeiro</div>
-<div class="alert">Venda permitida apenas para maiores de 18 anos</div>
+<div class="alert">Vendemos apenas para maiores de 18 anos</div>
 
-<div class="promo">🔥 PROMOÇÃO ESPECIAL: 2 PODS POR R$150 🔥</div>
+<!-- OFERTA DO DIA -->
+<div class="section">
+  <div class="offer">
+    🔥 OFERTA DO DIA 🔥<br>
+    Ignite V50 por apenas <strong>R$ 74,99</strong>
+  </div>
+</div>
 
-<h2>🔹 IGNITE</h2>
-<ul>
-<li>Ignite V30 — R$ 75</li>
-<li>Ignite V50 — R$ 78</li>
-<li>Ignite V80 — R$ 98</li>
-<li>Ignite V120 — R$ 135</li>
-<li>Ignite V150 — R$ 145</li>
-<li>Ignite V200 — R$ 180</li>
-<li>Ignite V250 — R$ 200</li>
-</ul>
+<!-- MAIS VENDIDOS -->
+<div class="section">
+  <h2>⭐ Mais Vendidos</h2>
 
-<h2>🔹 ELF BAR</h2>
-<ul>
-<li>Elf Bar Mini 2000 — R$ 52</li>
-<li>Elf Bar BC3500 — R$ 62</li>
-<li>Elf Bar BC5000 — R$ 70</li>
-<li>Elf Bar 7000 — R$ 90</li>
-<li>Elf Bar 8500 — R$ 102</li>
-<li>Elf Bar 9000 — R$ 105</li>
-<li>Elf Bar 10000 — R$ 118</li>
-<li>Elf Bar 12000 — R$ 135</li>
-<li>Elf Bar 15000 — R$ 155</li>
-</ul>
+  <div class="cards">
+    <div class="card">
+      <h3>Ignite V50</h3>
+      <div class="price">R$ 74,99</div>
+      <div class="sold">🟢 18 vendidos hoje</div>
+    </div>
 
-<h2>🔹 OXBAR</h2>
-<ul>
-<li>Oxbar Mini 3000 — R$ 58</li>
-<li>Oxbar 5000 — R$ 65</li>
-<li>Oxbar 7000 — R$ 80</li>
-<li>Oxbar 7500 — R$ 85</li>
-<li>Oxbar 9500 — R$ 105</li>
-<li>Oxbar 10000 — R$ 115</li>
-<li>Oxbar 12000 — R$ 135</li>
-<li>Oxbar 15000 — R$ 155</li>
-<li>Oxbar 20000 — R$ 190</li>
-</ul>
+    <div class="card">
+      <h3>Elfbar BC15K</h3>
+      <div class="price">R$ 79,99</div>
+      <div class="sold">🟢 14 vendidos hoje</div>
+    </div>
 
-<h2>🔹 TEQUILA VAPE</h2>
-<ul>
-<li>Tequila Vape 3000 — R$ 60</li>
-<li>Tequila Vape 5000 — R$ 68</li>
-<li>Tequila Vape 7000 — R$ 88</li>
-<li>Tequila Vape 9000 — R$ 108</li>
-<li>Tequila Vape 10000 — R$ 115</li>
-<li>Tequila Vape 12000 — R$ 135</li>
-<li>Tequila Vape 15000 — R$ 155</li>
-<li>Tequila Vape 20000 — R$ 195</li>
-</ul>
+    <div class="card">
+      <h3>Tequila Vape 15K</h3>
+      <div class="price">R$ 54,99</div>
+      <div class="sold">🟢 22 vendidos hoje</div>
+    </div>
 
-<h2>🔹 LOST MARY</h2>
-<ul>
-<li>Lost Mary Mini 3500 — R$ 60</li>
-<li>Lost Mary OS4000 — R$ 65</li>
-<li>Lost Mary OS5000 — R$ 72</li>
-<li>Lost Mary MO7000 — R$ 90</li>
-<li>Lost Mary 9000 — R$ 110</li>
-<li>Lost Mary 10000 — R$ 125</li>
-<li>Lost Mary 12000 — R$ 140</li>
-<li>Lost Mary 15000 — R$ 160</li>
-</ul>
+    <div class="card">
+      <h3>Ignite V250</h3>
+      <div class="price">R$ 109,99</div>
+      <div class="sold">🟢 9 vendidos hoje</div>
+    </div>
+  </div>
+</div>
 
-<h2>🔹 MASKKING</h2>
-<ul>
-<li>Maskking 3000 — R$ 50</li>
-<li>Maskking High GT 3500 — R$ 52</li>
-<li>Maskking High GT 5000 — R$ 68</li>
-<li>Maskking 6000 — R$ 78</li>
-<li>Maskking 8000 — R$ 92</li>
-<li>Maskking 10000 — R$ 115</li>
-<li>Maskking 12000 — R$ 130</li>
-<li>Maskking 15000 — R$ 155</li>
-</ul>
+<!-- CATÁLOGO -->
+<div class="section catalog">
+  <h2>📦 Catálogo Completo</h2>
 
-<h2>🔹 HQD</h2>
-<ul>
-<li>HQD Cuvie 1600 — R$ 38</li>
-<li>HQD Cuvie Plus 3500 — R$ 52</li>
-<li>HQD Mini 4000 — R$ 60</li>
-<li>HQD King 5000 — R$ 70</li>
-<li>HQD Ultra 8000 — R$ 95</li>
-<li>HQD Pro 10000 — R$ 120</li>
-<li>HQD Max 12000 — R$ 140</li>
-</ul>
+  <h3>IGNITE</h3>
+  <ul>
+    <li>Ignite V50 — R$ 74,99</li>
+    <li>Ignite V55 Ultra — R$ 84,99</li>
+    <li>Ignite V80 — R$ 99,99</li>
+    <li>Ignite V155 Ultra — R$ 99,99</li>
+    <li>Ignite V250 — R$ 109,99</li>
+    <li>Ignite V300 — R$ 119,99</li>
+    <li>Ignite Ice 40K — R$ 124,99</li>
+    <li>Ignite Mix 40K — R$ 129,99</li>
+  </ul>
 
-<h2>🔹 PUFFMI</h2>
-<ul>
-<li>Puffmi 3000 — R$ 55</li>
-<li>Puffmi TX5000 — R$ 68</li>
-<li>Puffmi 6000 — R$ 80</li>
-<li>Puffmi 8000 — R$ 90</li>
-</ul>
+  <h3>ELFBAR</h3>
+  <ul>
+    <li>Elfbar BC15K — R$ 79,99</li>
+    <li>Elfbar EW9K Kit — R$ 94,99</li>
+    <li>Elfbar GH23K — R$ 104,99</li>
+    <li>Elfbar TE30K — R$ 109,99</li>
+    <li>Elfbar Ice King 40K — R$ 119,99</li>
+  </ul>
 
-<h2>🔹 VAPENGIN</h2>
-<ul>
-<li>Vapengin Pluto 10000 — R$ 115</li>
-<li>Vapengin 12000 — R$ 135</li>
-<li>Vapengin 15000 — R$ 150</li>
-</ul>
-
-<h2>🔹 RANDM</h2>
-<ul>
-<li>RandM Mini 4000 — R$ 60</li>
-<li>RandM Tornado 6000 — R$ 80</li>
-<li>RandM Tornado 7000 — R$ 90</li>
-<li>RandM Tornado 9000 — R$ 110</li>
-<li>RandM Tornado 12000 — R$ 140</li>
-<li>RandM Tornado 15000 — R$ 170</li>
-<li>RandM Tornado 20000 — R$ 190</li>
-</ul>
-
-<h2>🔹 MR FOG</h2>
-<ul>
-<li>Mr Fog Mini 3500 — R$ 57</li>
-<li>Mr Fog Max Pro 4000 — R$ 62</li>
-<li>Mr Fog Switch 5000 — R$ 75</li>
-<li>Mr Fog 8000 — R$ 95</li>
-<li>Mr Fog 12000 — R$ 140</li>
-<li>Mr Fog 15000 — R$ 150</li>
-</ul>
+  <h3>OUTROS</h3>
+  <ul>
+    <li>Tequila Vape 15K — R$ 54,99</li>
+    <li>Waka 25K — R$ 74,99</li>
+    <li>Waka 36K — R$ 89,99</li>
+    <li>Adjust 40K — R$ 89,99</li>
+    <li>Sex Addict 28K — R$ 89,99</li>
+    <li>Oxbar 30K Pro — R$ 104,99</li>
+  </ul>
+</div>
 
 <a class="btn" href="https://instagram.com/pods.doribeiro" target="_blank">
   Comprar pelo Instagram
 </a>
+
+<div class="obs">
+  Obs: vendas no cartão possuem acréscimo da taxa da maquininha.
+</div>
 
 </body>
 </html>
