@@ -1,92 +1,472 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto</title>
+<meta charset="UTF-8">
+<title>Pods do Ribeiro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0f0f0f;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+header{
+  padding:25px;
+  text-align:center;
+  background:#000;
+}
 
-        .card {
-            background-color: #1a1a1a;
-            border-radius: 12px;
-            padding: 20px;
-            max-width: 320px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-        }
+header h1{
+  margin:0;
+  font-size:32px;
+}
 
-        .card img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
+header p{
+  color:#bbb;
+  margin:5px 0;
+}
 
-        .card h1 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
+.warning{
+  background:#b30000;
+  padding:10px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+}
 
-        .card p {
-            font-size: 0.9rem;
-            opacity: 0.85;
-            margin-bottom: 15px;
-        }
+.section{
+  padding:30px 20px;
+  max-width:1300px;
+  margin:auto;
+}
 
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 10px 18px;
-            background-color: #00ff88;
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
+.card{
+  background:#1a1a1a;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 0 15px #000;
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-            opacity: 0.9;
-        }
-    </style>
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:contain;
+  background:#000;
+}
+
+.card-content{
+  padding:15px;
+  text-align:center;
+}
+
+.card h3{
+  margin:8px 0;
+  font-size:18px;
+  color:#00ffcc;
+}
+
+.price{
+  font-size:20px;
+  font-weight:bold;
+  color:#00ff88;
+  margin-bottom:10px;
+}
+
+.btn{
+  background:linear-gradient(45deg,#00ff88,#00ccff);
+  color:#000;
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="card">
-        <img src="./tequila15k.jpg" alt="Tequila Vape 15K">
+<header>
+  <h1>• PODS DO RIBEIRO •</h1>
+  <p>@pods.doribeiro • Delivery 🛵</p>
+</header>
 
-        <h1>Tequila Vape 15K</h1>
+<div class="warning">
+⚠️ Venda apenas para maiores de 18 anos • Pods não possuem troca ou garantia
+</div>
 
-        <p>Sabor intenso, alta durabilidade e design premium.</p>
+<section class="section">
+  <div class="grid">
 
-        <div class="price">R$ 149,90</div>
-
-        <a href="#" class="btn">Comprar agora</a>
+    <!-- CARDS -->
+    <div class="card">  
+  <img src="/tequila15k.jpg" alt="Tequila Vape 15K" style="width:100%; border-radius:10px;">
+      <div class="card-content">
+        <h3>TEQUILA VAPE 15K</h3>
+        <div class="price">R$ 54,99</div>
+        <div class="btn" onclick="openModal('tequila15k')">Ver detalhes</div>
+      </div>
     </div>
 
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>LOST M 15K</h3>
+        <div class="price">R$ 74,99</div>
+        <div class="btn" onclick="openModal('lostm15k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>WAKA 25K</h3>
+        <div class="price">R$ 74,99</div>
+        <div class="btn" onclick="openModal('waka25k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ADJUST 40K</h3>
+        <div class="price">R$ 89,99</div>
+        <div class="btn" onclick="openModal('adjust40k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>WAKA 36K</h3>
+        <div class="price">R$ 89,99</div>
+        <div class="btn" onclick="openModal('waka36k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>OXBAR G9,5K</h3>
+        <div class="price">R$ 84,99</div>
+        <div class="btn" onclick="openModal('oxbar9k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>OXBAR 30K PRO</h3>
+        <div class="price">R$ 104,99</div>
+        <div class="btn" onclick="openModal('oxbar30k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>SEX ADDICT 28K</h3>
+        <div class="price">R$ 89,99</div>
+        <div class="btn" onclick="openModal('sexaddict28k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V50</h3>
+        <div class="price">R$ 74,99</div>
+        <div class="btn" onclick="openModal('ignitev50')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V55 ULTRA</h3>
+        <div class="price">R$ 84,99</div>
+        <div class="btn" onclick="openModal('ignitev55')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V80</h3>
+        <div class="price">R$ 99,99</div>
+        <div class="btn" onclick="openModal('ignitev80')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE P100 REFIL</h3>
+        <div class="price">R$ 84,99</div>
+        <div class="btn" onclick="openModal('ignitep100')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V155 ULTRA</h3>
+        <div class="price">R$ 99,99</div>
+        <div class="btn" onclick="openModal('ignitev155')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V250</h3>
+        <div class="price">R$ 109,99</div>
+        <div class="btn" onclick="openModal('ignitev250')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE V300</h3>
+        <div class="price">R$ 119,99</div>
+        <div class="btn" onclick="openModal('ignitev300')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE ICE 40K</h3>
+        <div class="price">R$ 124,99</div>
+        <div class="btn" onclick="openModal('igniteice40k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>IGNITE MIX 40K</h3>
+        <div class="price">R$ 129,99</div>
+        <div class="btn" onclick="openModal('ignitemix40k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR EW9K KIT</h3>
+        <div class="price">R$ 94,99</div>
+        <div class="btn" onclick="openModal('elfbarew9k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR BC15K</h3>
+        <div class="price">R$ 79,99</div>
+        <div class="btn" onclick="openModal('elfbarbc15k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR GH23K</h3>
+        <div class="price">R$ 104,99</div>
+        <div class="btn" onclick="openModal('elfbargh23k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR TE30K BLACK GOLD</h3>
+        <div class="price">R$ 114,99</div>
+        <div class="btn" onclick="openModal('elfbarte30kbg')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR TE30K</h3>
+        <div class="price">R$ 109,99</div>
+        <div class="btn" onclick="openModal('elfbarte30k')">Ver detalhes</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="images/placeholder.jpg">
+      <div class="card-content">
+        <h3>ELFBAR ICE KING 40K</h3>
+        <div class="price">R$ 119,99</div>
+        <div class="btn" onclick="openModal('elfbariceking40k')">Ver detalhes</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" style="display:none; position:fixed; inset:0; background:#000c; padding:20px;">
+  <div style="background:#111; max-width:600px; margin:auto; padding:20px; border-radius:15px; overflow-y:auto; max-height:90vh;">
+    <h2 id="mTitle"></h2>
+    <p id="mPrice"></p>
+    <ul id="mFlavors"></ul>
+    <p id="mInfo">ATENÇÃO: POD NÃO POSSUI GARANTIA OU TROCA</p>
+    <div class="btn" onclick="closeModal()">Fechar</div>
+  </div>
+</div>
+
+<script>
+const products = {
+  tequila15k:{
+    title:"TEQUILA VAPE 15K",
+    price:"R$ 54,99",
+    flavors:["Strawberry Banana Dragonfruit","Strawberry Banana","Strawberry Watermelon","Strawberry Bubblegum","Berry Cherry","Sweet Orange Cranberry Berry"]
+  },
+  lostm15k:{
+    title:"LOST M 15K",
+    price:"R$ 74,99",
+    flavors:["Miami mint"]
+  },
+  waka25k:{
+    title:"WAKA 25K",
+    price:"R$ 74,99",
+    flavors:["Banana açaí","Aqua ice","Menthol"]
+  },
+  adjust40k:{
+    title:"ADJUST 40K",
+    price:"R$ 89,99",
+    flavors:["Black razz baja","Blue razz ice","Pineapple ice Peach","Raspberry watermelon","Watermelon B-Pop","Mixed Mint","Strawberry Mint Candy","Watermelon Mango Peach"]
+  },
+  waka36k:{
+    title:"WAKA 36K",
+    price:"R$ 89,99",
+    flavors:["Peach","White Grape","Banana Açaí","Aqua Blueberry"]
+  },
+  oxbar9k:{
+    title:"OXBAR G9,5K",
+    price:"R$ 84,99",
+    flavors:["Blue guava"]
+  },
+  oxbar30k:{
+    title:"OXBAR 30K PRO",
+    price:"R$ 104,99",
+    flavors:["Raspberry Watermelon","Passion Kiwi"]
+  },
+  sexaddict28k:{
+    title:"SEX ADDICT 28K",
+    price:"R$ 89,99",
+    flavors:["Banana ice","Green apple","Strawberry grape ice","Passion fruit sour kiwi","Grape kiwi ice","Blueberry ice","Icy mint","Strawberry banana ice","Strawberry ice","Pinneapple ice","Grape Açaí"]
+  },
+  ignitev50:{
+    title:"IGNITE V50",
+    price:"R$ 74,99",
+    flavors:["Blue Dream","Strawberry banana"]
+  },
+  ignitev55:{
+    title:"IGNITE V55 ULTRA",
+    price:"R$ 84,99",
+    flavors:["Blueberry ice","Strawberry kiwi","Icy mint","Mint melon","Strawberry banana","Menthol","Melon mix"]
+  },
+  ignitev80:{
+    title:"IGNITE V80",
+    price:"R$ 99,99",
+    flavors:["Banana Ice","Watermelon Ice","Cactus","Iced Pomegranate Açaí Berry","Lime Mango","Passion Fruit Sour Kiwi","Grapefruit Mint"]
+  },
+  ignitep100:{
+    title:"IGNITE P100 REFIL",
+    price:"R$ 84,99",
+    flavors:["Green apple"]
+  },
+  ignitev155:{
+    title:"IGNITE V155 ULTRA",
+    price:"R$ 99,99",
+    flavors:["Kiwi Passion Fruit Guava","Strawberry Banana"]
+  },
+  ignitev250:{
+    title:"IGNITE V250",
+    price:"R$ 109,99",
+    flavors:["Banana Ice","Menthol","Strawberry Kiwi","Grape Ice","Green Apple"]
+  },
+  ignitev300:{
+    title:"IGNITE V300",
+    price:"R$ 119,99",
+    flavors:["Strawberry banana","Menthol","Green Apple","Ice mint","Blueberry Strawberry Coconut"]
+  },
+  igniteice40k:{
+    title:"IGNITE ICE 40K",
+    price:"R$ 124,99",
+    flavors:["Icy Mint/Peach Grape"]
+  },
+  ignitemix40k:{
+    title:"IGNITE MIX 40K",
+    price:"R$ 129,99",
+    flavors:["Icy Mint/Peach Grape"]
+  },
+  elfbarew9k:{
+    title:"ELFBAR EW9K KIT",
+    price:"R$ 94,99",
+    flavors:["Mango peach ice"]
+  },
+  elfbarbc15k:{
+    title:"ELFBAR BC15K",
+    price:"R$ 79,99",
+    flavors:["Passion fruit orange guava","Peach mango watermelon","Kiwi watermelon apple","Pear watermelon dragon fruit","Strawberry ice cream","Sour Apple Ice","Watermelon ice","Strawberry ice","Bubbaloo Grape"]
+  },
+  elfbargh23k:{
+    title:"ELFBAR GH23K",
+    price:"R$ 104,99",
+    flavors:["Grape ice","Strawberry banana","Peach mango watermelon","Strawberry ice","Kiwi dragonfruit","Baja splash"]
+  },
+  elfbarte30kbg:{
+    title:"ELFBAR TE30K BLACK GOLD",
+    price:"R$ 114,99",
+    flavors:["Green Apple lemon"]
+  },
+  elfbarte30k:{
+    title:"ELFBAR TE30K",
+    price:"R$ 109,99",
+    flavors:[]
+  },
+  elfbariceking40k:{
+    title:"ELFBAR ICE KING 40K",
+    price:"R$ 119,99",
+    flavors:["Green Apple Ice","Summer Splash","Baja Splash"]
+  }
+};
+
+function openModal(id){
+  const p = products[id];
+  document.getElementById("mTitle").innerText = p.title;
+  document.getElementById("mPrice").innerText = p.price;
+
+  const ul = document.getElementById("mFlavors");
+  ul.innerHTML="";
+  p.flavors.forEach(f=>{
+    const li=document.createElement("li");
+    li.innerText=f;
+    ul.appendChild(li);
+  });
+
+  document.getElementById("modal").style.display="block";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
 </body>
-</html>
+    </html>
