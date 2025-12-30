@@ -68,26 +68,87 @@ header p{
   text-align:center;
 }
 
+.badge{
+  background:#ff0000;
+  color:#fff;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:bold;
+}
+
 .card h3{
-  margin:8px 0;
+  margin:10px 0 5px;
   font-size:18px;
   color:#00ffcc;
+}
+
+.old-price{
+  text-decoration:line-through;
+  color:#888;
+  font-size:14px;
 }
 
 .price{
   font-size:20px;
   font-weight:bold;
   color:#00ff88;
-  margin-bottom:10px;
 }
 
-.btn{
+.stock{
+  margin-top:6px;
+  font-size:14px;
+  font-weight:bold;
+  color:#ff5555;
+}
+
+.low-stock{
+  animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+  0%{opacity:1;}
+  50%{opacity:0.6;}
+  100%{opacity:1;}
+}
+
+.btn-buy{
+  display:block;
+  margin-top:12px;
   background:linear-gradient(45deg,#00ff88,#00ccff);
   color:#000;
   padding:10px;
   border-radius:10px;
-  cursor:pointer;
+  text-decoration:none;
   font-weight:bold;
+}
+
+.timer-box{
+  background:#111;
+  border:2px dashed #ff4444;
+  padding:15px;
+  text-align:center;
+  border-radius:12px;
+  margin:30px 0;
+}
+
+.timer{
+  font-size:22px;
+  font-weight:bold;
+  color:#ff4444;
+}
+
+.payment{
+  background:#111;
+  padding:25px;
+  border-radius:14px;
+  text-align:center;
+}
+
+.payment img{
+  width:220px;
+  margin-top:15px;
+  border-radius:12px;
 }
 </style>
 </head>
@@ -96,226 +157,87 @@ header p{
 
 <header>
   <h1>• PODS DO RIBEIRO •</h1>
-  <p>@pods.doribeiro • Delivery 🛵</p>
+  <p>@podss.doribeiro_ • Delivery 🛵</p>
 </header>
 
 <div class="warning">
-⚠️ Venda apenas para maiores de 18 anos • Pods não possuem troca ou garantia
+⚠️ Venda apenas para maiores de 18 anos
 </div>
 
 <section class="section">
+
+  <!-- TIMER -->
+  <div class="timer-box">
+    🔥 Promoção termina em:
+    <div class="timer" id="timer">00:00:00</div>
+  </div>
+
+  <!-- PRODUTOS -->
   <div class="grid">
 
-    <!-- CARDS -->
     <div class="card">
-      <img src="./tequila15k.jpg" alt="Tequila Vape 15K">
+      <img src="images/tequila15k.jpg" alt="Tequila Vape 15K">
       <div class="card-content">
+        <span class="badge">15% OFF</span>
         <h3>TEQUILA VAPE 15K</h3>
+        <div class="old-price">R$ 64,99</div>
         <div class="price">R$ 54,99</div>
-        <div class="btn" onclick="openModal('tequila15k')">Ver detalhes</div>
+        <div class="stock low-stock">🔥 Últimas 3 unidades</div>
+        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="images/lost-m-15k.jpg" alt="Lost M 15K">
+      <img src="images/ignite-v80.jpg" alt="Ignite V80">
       <div class="card-content">
-        <h3>LOST M 15K</h3>
-        <div class="price">R$ 74,99</div>
-        <div class="btn" onclick="openModal('lostm15k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/waka-25k.jpg" alt="WAKA 25K">
-      <div class="card-content">
-        <h3>WAKA 25K</h3>
-        <div class="price">R$ 74,99</div>
-        <div class="btn" onclick="openModal('waka25k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/adjust-40k.jpg" alt="ADJUST 40K">
-      <div class="card-content">
-        <h3>ADJUST 40K</h3>
-        <div class="price">R$ 89,99</div>
-        <div class="btn" onclick="openModal('adjust40k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/waka-36k.jpg" alt="WAKA 36K">
-      <div class="card-content">
-        <h3>WAKA 36K</h3>
-        <div class="price">R$ 89,99</div>
-        <div class="btn" onclick="openModal('waka36k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/oxbar-g9-5k.jpg" alt="OXBAR G9,5K">
-      <div class="card-content">
-        <h3>OXBAR G9,5K</h3>
-        <div class="price">R$ 84,99</div>
-        <div class="btn" onclick="openModal('oxbar9k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/oxbar-30k-pro.jpg" alt="OXBAR 30K PRO">
-      <div class="card-content">
-        <h3>OXBAR 30K PRO</h3>
-        <div class="price">R$ 104,99</div>
-        <div class="btn" onclick="openModal('oxbar30k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/sex-addict-28k.jpg" alt="SEX ADDICT 28K">
-      <div class="card-content">
-        <h3>SEX ADDICT 28K</h3>
-        <div class="price">R$ 89,99</div>
-        <div class="btn" onclick="openModal('sexaddict28k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v50.jpg" alt="IGNITE V50">
-      <div class="card-content">
-        <h3>IGNITE V50</h3>
-        <div class="price">R$ 74,99</div>
-        <div class="btn" onclick="openModal('ignitev50')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v55-ultra.jpg" alt="IGNITE V55 ULTRA">
-      <div class="card-content">
-        <h3>IGNITE V55 ULTRA</h3>
-        <div class="price">R$ 84,99</div>
-        <div class="btn" onclick="openModal('ignitev55')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v80.jpg" alt="IGNITE V80">
-      <div class="card-content">
+        <span class="badge">15% OFF</span>
         <h3>IGNITE V80</h3>
+        <div class="old-price">R$ 117,99</div>
         <div class="price">R$ 99,99</div>
-        <div class="btn" onclick="openModal('ignitev80')">Ver detalhes</div>
+        <div class="stock low-stock">⚠️ Apenas 2 unidades</div>
+        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
       </div>
     </div>
 
     <div class="card">
-      <img src="images/ignite-p100-refil.jpg" alt="IGNITE P100 REFIL">
+      <img src="images/ignite-v250.jpg" alt="Ignite V250">
       <div class="card-content">
-        <h3>IGNITE P100 REFIL</h3>
-        <div class="price">R$ 84,99</div>
-        <div class="btn" onclick="openModal('ignitep100')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v155-ultra.jpg" alt="IGNITE V155 ULTRA">
-      <div class="card-content">
-        <h3>IGNITE V155 ULTRA</h3>
-        <div class="price">R$ 99,99</div>
-        <div class="btn" onclick="openModal('ignitev155')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v250.jpg" alt="IGNITE V250">
-      <div class="card-content">
+        <span class="badge">15% OFF</span>
         <h3>IGNITE V250</h3>
+        <div class="old-price">R$ 129,99</div>
         <div class="price">R$ 109,99</div>
-        <div class="btn" onclick="openModal('ignitev250')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-v300.jpg" alt="IGNITE V300">
-      <div class="card-content">
-        <h3>IGNITE V300</h3>
-        <div class="price">R$ 119,99</div>
-        <div class="btn" onclick="openModal('ignitev300')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-ice-40k.jpg" alt="IGNITE ICE 40K">
-      <div class="card-content">
-        <h3>IGNITE ICE 40K</h3>
-        <div class="price">R$ 124,99</div>
-        <div class="btn" onclick="openModal('igniteice40k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/ignite-mix-40k.jpg" alt="IGNITE MIX 40K">
-      <div class="card-content">
-        <h3>IGNITE MIX 40K</h3>
-        <div class="price">R$ 129,99</div>
-        <div class="btn" onclick="openModal('ignitemix40k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-ew9k-kit.jpg" alt="ELFBAR EW9K KIT">
-      <div class="card-content">
-        <h3>ELFBAR EW9K KIT</h3>
-        <div class="price">R$ 94,99</div>
-        <div class="btn" onclick="openModal('elfbarew9k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-bc15k.jpg" alt="ELFBAR BC15K">
-      <div class="card-content">
-        <h3>ELFBAR BC15K</h3>
-        <div class="price">R$ 79,99</div>
-        <div class="btn" onclick="openModal('elfbarbc15k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-gh23k.jpg" alt="ELFBAR GH23K">
-      <div class="card-content">
-        <h3>ELFBAR GH23K</h3>
-        <div class="price">R$ 104,99</div>
-        <div class="btn" onclick="openModal('elfbargh23k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-te30k-black-gold.jpg" alt="ELFBAR TE30K BLACK GOLD">
-      <div class="card-content">
-        <h3>ELFBAR TE30K BLACK GOLD</h3>
-        <div class="price">R$ 114,99</div>
-        <div class="btn" onclick="openModal('elfbarte30kbg')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-te30k.jpg" alt="ELFBAR TE30K">
-      <div class="card-content">
-        <h3>ELFBAR TE30K</h3>
-        <div class="price">R$ 109,99</div>
-        <div class="btn" onclick="openModal('elfbarte30k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/elfbar-ice-king-40k.jpg" alt="ELFBAR ICE KING 40K">
-      <div class="card-content">
-        <h3>ELFBAR ICE KING 40K</h3>
-        <div class="price">R$ 119,99</div>
-        <div class="btn" onclick="openModal('elfbariceking40k')">Ver detalhes</div>
+        <div class="stock">⏳ Estoque limitado</div>
+        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
       </div>
     </div>
 
   </div>
+
+  <!-- PAGAMENTO -->
+  <div id="pagamento" class="payment">
+    <h2>Pagamento via PIX</h2>
+    <p>Banco: Mercado Pago</p>
+    <p>Escaneie o QR Code abaixo para finalizar a compra</p>
+    <img src="qrcode/pix-mercadopago.png" alt="PIX Mercado Pago">
+  </div>
+
 </section>
 
+<script>
+// TIMER FAKE (4 HORAS)
+let time = 4 * 60 * 60;
+
+setInterval(() => {
+  let h = Math.floor(time / 3600);
+  let m = Math.floor((time % 3600) / 60);
+  let s = time % 60;
+
+  document.getElementById("timer").innerHTML =
+    `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+
+  if(time > 0) time--;
+}, 1000);
+</script>
+
 </body>
-          </html>
+</html>
