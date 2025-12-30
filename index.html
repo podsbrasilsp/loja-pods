@@ -1,194 +1,201 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Pods do Ribeiro | @pods.doribeiro</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0b0b0b, #111);
-      color: #fff;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .insta {
-      text-align: center;
-      color: #aaa;
-      margin-bottom: 5px;
-    }
-    .alert {
-      text-align: center;
-      color: #ff4d4d;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-    .section {
-      margin-top: 40px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-    .card {
-      background: #1a1a1a;
-      border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 0 15px #000;
-    }
-    .card h3 {
-      margin: 0 0 10px;
-      color: #00ffcc;
-    }
-    .price {
-      color: #00ff88;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    .sold {
-      font-size: 13px;
-      color: #bbb;
-      margin-top: 5px;
-    }
-    .offer {
-      background: linear-gradient(45deg, #00ff88, #00ccff);
-      color: #000;
-      padding: 25px;
-      border-radius: 16px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      box-shadow: 0 0 25px #000;
-    }
-    .catalog h3 {
-      margin-top: 25px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 5px;
-      color: #00ffcc;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      padding: 6px 0;
-      border-bottom: 1px dotted #333;
-    }
-    .btn {
-      display: block;
-      margin: 50px auto 10px;
-      padding: 16px 35px;
-      background: linear-gradient(45deg, #00ff88, #00ccff);
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 12px;
-      font-size: 18px;
-      text-align: center;
-      width: fit-content;
-    }
-    .obs {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #ccc;
-      text-align: center;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Pods do Ribeiro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+}
+header{
+  padding:25px;
+  text-align:center;
+  background:#000;
+}
+header h1{
+  margin:0;
+  font-size:32px;
+}
+header p{
+  color:#bbb;
+  margin:5px 0;
+}
+.warning{
+  background:#b30000;
+  padding:10px;
+  text-align:center;
+  font-size:14px;
+  font-weight:bold;
+}
+.section{
+  padding:30px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+.section h2{
+  margin-bottom:20px;
+  border-left:5px solid #00ff99;
+  padding-left:10px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:15px;
+}
+.card{
+  background:#1a1a1a;
+  padding:18px;
+  border-radius:14px;
+  box-shadow:0 0 15px #000;
+}
+.card h3{
+  margin:0 0 10px;
+  color:#00ffcc;
+}
+.price{
+  font-size:20px;
+  font-weight:bold;
+  color:#00ff88;
+}
+.sold{
+  font-size:13px;
+  color:#aaa;
+  margin-top:5px;
+}
+.offer{
+  background:linear-gradient(45deg,#00ff88,#00ccff);
+  color:#000;
+  padding:25px;
+  text-align:center;
+  border-radius:18px;
+  font-size:22px;
+  font-weight:bold;
+}
+.list{
+  list-style:none;
+  padding:0;
+}
+.list li{
+  padding:6px 0;
+  border-bottom:1px dotted #333;
+}
+.btn{
+  display:block;
+  width:fit-content;
+  margin:40px auto;
+  padding:16px 35px;
+  background:linear-gradient(45deg,#00ff88,#00ccff);
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:12px;
+  font-size:18px;
+}
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  color:#aaa;
+}
+</style>
 </head>
+
 <body>
 
-<h1>• PODS DO RIBEIRO •</h1>
-<div class="insta">@pods.doribeiro</div>
-<div class="alert">Vendemos apenas para maiores de 18 anos</div>
+<header>
+  <h1>• PODS DO RIBEIRO •</h1>
+  <p>@pods.doribeiro</p>
+  <p>Delivery disponível 🛵</p>
+</header>
 
-<!-- OFERTA DO DIA -->
-<div class="section">
+<div class="warning">
+  ⚠️ PODS NÃO POSSUEM GARANTIA OU TROCA • VENDA APENAS +18
+</div>
+
+<section class="section">
   <div class="offer">
     🔥 OFERTA DO DIA 🔥<br>
-    Ignite V50 por apenas <strong>R$ 74,99</strong>
+    TEQUILA 15K — 2 UNIDADES POR <strong>R$ 90,00</strong>
   </div>
-</div>
+</section>
 
-<!-- MAIS VENDIDOS -->
-<div class="section">
+<section class="section">
   <h2>⭐ Mais Vendidos</h2>
-
-  <div class="cards">
+  <div class="grid">
     <div class="card">
-      <h3>Ignite V50</h3>
-      <div class="price">R$ 74,99</div>
-      <div class="sold">🟢 18 vendidos hoje</div>
+      <h3>ELFBAR 15K</h3>
+      <div class="price">R$ 58,00</div>
+      <div class="sold">🟢 21 vendidos hoje</div>
     </div>
-
     <div class="card">
-      <h3>Elfbar BC15K</h3>
-      <div class="price">R$ 79,99</div>
+      <h3>IGNITE V80</h3>
+      <div class="price">R$ 70,00</div>
+      <div class="sold">🟢 17 vendidos hoje</div>
+    </div>
+    <div class="card">
+      <h3>OXBAR 9.500</h3>
+      <div class="price">R$ 55,00</div>
       <div class="sold">🟢 14 vendidos hoje</div>
     </div>
-
     <div class="card">
-      <h3>Tequila Vape 15K</h3>
-      <div class="price">R$ 54,99</div>
-      <div class="sold">🟢 22 vendidos hoje</div>
-    </div>
-
-    <div class="card">
-      <h3>Ignite V250</h3>
-      <div class="price">R$ 109,99</div>
-      <div class="sold">🟢 9 vendidos hoje</div>
+      <h3>BLACK SHEEP 15K</h3>
+      <div class="price">R$ 65,00</div>
+      <div class="sold">🟢 11 vendidos hoje</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- CATÁLOGO -->
-<div class="section catalog">
-  <h2>📦 Catálogo Completo</h2>
-
-  <h3>IGNITE</h3>
-  <ul>
-    <li>Ignite V50 — R$ 74,99</li>
-    <li>Ignite V55 Ultra — R$ 84,99</li>
-    <li>Ignite V80 — R$ 99,99</li>
-    <li>Ignite V155 Ultra — R$ 99,99</li>
-    <li>Ignite V250 — R$ 109,99</li>
-    <li>Ignite V300 — R$ 119,99</li>
-    <li>Ignite Ice 40K — R$ 124,99</li>
-    <li>Ignite Mix 40K — R$ 129,99</li>
-  </ul>
+<section class="section">
+  <h2>📦 Catálogo</h2>
 
   <h3>ELFBAR</h3>
-  <ul>
-    <li>Elfbar BC15K — R$ 79,99</li>
-    <li>Elfbar EW9K Kit — R$ 94,99</li>
-    <li>Elfbar GH23K — R$ 104,99</li>
-    <li>Elfbar TE30K — R$ 109,99</li>
-    <li>Elfbar Ice King 40K — R$ 119,99</li>
+  <ul class="list">
+    <li>EW 9K Kit — R$ 90,00 | Refil R$ 50,00</li>
+    <li>15K — R$ 58,00</li>
+    <li>23K — R$ 85,00</li>
+    <li>30K — R$ 90,00</li>
+    <li>Ice King 40K — R$ 105,00</li>
+    <li>Trio 40K — R$ 105,00</li>
   </ul>
 
-  <h3>OUTROS</h3>
-  <ul>
-    <li>Tequila Vape 15K — R$ 54,99</li>
-    <li>Waka 25K — R$ 74,99</li>
-    <li>Waka 36K — R$ 89,99</li>
-    <li>Adjust 40K — R$ 89,99</li>
-    <li>Sex Addict 28K — R$ 89,99</li>
-    <li>Oxbar 30K Pro — R$ 104,99</li>
+  <h3>IGNITE</h3>
+  <ul class="list">
+    <li>V55 — R$ 60,00</li>
+    <li>V80 — R$ 70,00</li>
+    <li>V120 — R$ 73,00</li>
+    <li>V150 — R$ 75,00</li>
+    <li>V155 Ultra Slim — R$ 80,00</li>
+    <li>V250 — R$ 95,00</li>
+    <li>V300 — R$ 105,00</li>
+    <li>V400 Mix — R$ 120,00</li>
   </ul>
-</div>
+
+  <h3>OUTRAS MARCAS</h3>
+  <ul class="list">
+    <li>OXBAR 9.500 — R$ 55,00</li>
+    <li>OXBAR PRO 30K — R$ 90,00</li>
+    <li>WAKA 25K — R$ 68,00</li>
+    <li>WAKA 36K — R$ 90,00</li>
+    <li>BLACK SHEEP 15K — R$ 65,00</li>
+    <li>BLACK SHEEP 30K — R$ 100,00</li>
+    <li>SEX ADDICT 28K — R$ 78,00</li>
+    <li>LOST MARY 20K — R$ 70,00</li>
+    <li>MASKKING 40K — R$ 90,00</li>
+  </ul>
+</section>
 
 <a class="btn" href="https://instagram.com/pods.doribeiro" target="_blank">
   Comprar pelo Instagram
 </a>
 
-<div class="obs">
-  Obs: vendas no cartão possuem acréscimo da taxa da maquininha.
-</div>
+<footer>
+  Pagamento no cartão sujeito à taxa da maquininha
+</footer>
 
 </body>
 </html>
