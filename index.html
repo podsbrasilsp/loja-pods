@@ -8,106 +8,86 @@
 <style>
 body{
   margin:0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:#0e0e0e;
   color:#fff;
 }
 header{
-  padding:25px;
+  padding:20px;
   text-align:center;
   background:#000;
 }
-header h1{
-  margin:0;
-  font-size:32px;
-}
-header p{
-  color:#bbb;
-  margin:5px 0;
-}
-.warning{
-  background:#b30000;
-  padding:10px;
-  text-align:center;
-  font-size:14px;
-  font-weight:bold;
-}
+header h1{margin:0}
 .section{
-  padding:30px 15px;
   max-width:900px;
   margin:auto;
+  padding:20px;
 }
-.section h2{
-  margin-bottom:20px;
-  border-left:5px solid #00ff99;
-  padding-left:10px;
-}
-
-/* GRID 2 COLUNAS */
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:16px;
+  gap:15px;
 }
-
-/* CARD VERTICAL */
 .card{
   background:#1a1a1a;
-  border-radius:18px;
-  box-shadow:0 0 15px #000;
+  border-radius:16px;
   overflow:hidden;
   text-align:center;
 }
 .card img{
   width:100%;
-  height:260px;
+  height:220px;
   object-fit:cover;
 }
-.card-content{
-  padding:14px;
-}
-.card h3{
-  margin:6px 0;
-  font-size:16px;
-  color:#00ffcc;
-}
-.price{
-  font-size:18px;
-  font-weight:bold;
-  color:#00ff88;
-}
-.sold{
-  font-size:12px;
-  color:#aaa;
-  margin-top:4px;
-}
-.offer{
-  background:linear-gradient(45deg,#00ff88,#00ccff);
-  color:#000;
-  padding:22px;
-  text-align:center;
-  border-radius:18px;
-  font-size:20px;
-  font-weight:bold;
-}
+.card-content{padding:12px}
+.card h3{margin:6px 0;color:#00ffcc;font-size:15px}
+.price{color:#00ff88;font-weight:bold}
 .btn{
-  display:block;
-  width:fit-content;
-  margin:40px auto;
-  padding:16px 35px;
-  background:linear-gradient(45deg,#00ff88,#00ccff);
+  margin-top:10px;
+  display:inline-block;
+  padding:8px 14px;
+  background:#00ff88;
   color:#000;
   text-decoration:none;
+  border-radius:10px;
   font-weight:bold;
-  border-radius:14px;
-  font-size:18px;
+  cursor:pointer;
 }
-footer{
-  text-align:center;
-  padding:20px;
-  font-size:14px;
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.modal-content{
+  background:#111;
+  max-width:420px;
+  width:90%;
+  border-radius:16px;
+  padding:18px;
+}
+.modal-content img{
+  width:100%;
+  border-radius:12px;
+}
+.close{
+  text-align:right;
+  cursor:pointer;
   color:#aaa;
 }
+.warning{
+  background:#b30000;
+  padding:8px;
+  text-align:center;
+  font-size:13px;
+  margin:10px 0;
+}
+ul{padding-left:18px}
 </style>
 </head>
 
@@ -115,72 +95,104 @@ footer{
 
 <header>
   <h1>• PODS DO RIBEIRO •</h1>
-  <p>@pods.doribeiro</p>
-  <p>Delivery disponível 🛵</p>
+  <p>@pods.doribeiro • Delivery 🛵</p>
 </header>
 
-<div class="warning">
-  ⚠️ VENDA APENAS PARA MAIORES DE 18 ANOS
-</div>
-
 <section class="section">
-  <div class="offer">
-    🔥 OFERTA DO DIA 🔥<br>
-    TEQUILA 15K — 2 UNIDADES POR <strong>R$ 90,00</strong>
-  </div>
-</section>
-
-<section class="section">
-  <h2>⭐ Mais Vendidos</h2>
-
   <div class="grid">
 
+    <!-- PRODUTO -->
     <div class="card">
-      <img src="images/placeholder.jpg" alt="Tequila Vape 15K">
+      <img src="images/placeholder.jpg">
       <div class="card-content">
-        <h3>TEQUILA VAPE 15K</h3>
-        <div class="price">R$ 54,99</div>
-        <div class="sold">🟢 19 vendidos hoje</div>
+        <h3>ELFBAR 15K</h3>
+        <div class="price">R$ 58,00</div>
+        <div class="btn" onclick="openModal('elfbar15k')">Ver detalhes</div>
       </div>
     </div>
 
     <div class="card">
-      <img src="images/placeholder.jpg" alt="Elfbar BC15K">
-      <div class="card-content">
-        <h3>ELFBAR BC15K</h3>
-        <div class="price">R$ 79,99</div>
-        <div class="sold">🟢 21 vendidos hoje</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/placeholder.jpg" alt="Ignite V80">
+      <img src="images/placeholder.jpg">
       <div class="card-content">
         <h3>IGNITE V80</h3>
-        <div class="price">R$ 99,99</div>
-        <div class="sold">🟢 17 vendidos hoje</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/placeholder.jpg" alt="Oxbar 9.5K">
-      <div class="card-content">
-        <h3>OXBAR 9.5K</h3>
-        <div class="price">R$ 84,99</div>
-        <div class="sold">🟢 14 vendidos hoje</div>
+        <div class="price">R$ 70,00</div>
+        <div class="btn" onclick="openModal('ignitev80')">Ver detalhes</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<a class="btn" href="https://instagram.com/pods.doribeiro" target="_blank">
-  Comprar pelo Instagram
-</a>
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="close" onclick="closeModal()">✖</div>
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <div class="price" id="modalPrice"></div>
 
-<footer>
-  Pagamento no cartão sujeito à taxa da maquininha
-</footer>
+    <p><strong>Sabores disponíveis:</strong></p>
+    <ul id="modalFlavors"></ul>
+
+    <p><strong>Pagamento:</strong> PIX</p>
+    <p><strong>Entrega:</strong> Delivery 🛵</p>
+
+    <div class="warning">
+      ⚠️ ATENÇÃO: POD NÃO TEM GARANTIA E NEM TROCA
+    </div>
+
+    <p id="modalInfo"></p>
+
+    <a class="btn" href="https://instagram.com/pods.doribeiro" target="_blank">
+      Comprar pelo Instagram
+    </a>
+  </div>
+</div>
+
+<script>
+const products = {
+  elfbar15k:{
+    title:"ELFBAR 15K",
+    price:"R$ 58,00",
+    img:"images/placeholder.jpg",
+    flavors:[
+      "Morango Ice","Banana Ice","Uva e Cereja",
+      "Miami Mint","Melancia Ice"
+    ],
+    info:"O Elfbar 15K oferece vapor consistente, sabor intenso e ótima durabilidade para uso diário."
+  },
+  ignitev80:{
+    title:"IGNITE V80",
+    price:"R$ 70,00",
+    img:"images/placeholder.jpg",
+    flavors:[
+      "Banana Ice","Icy Mint","Uva Ice","Melancia Ice"
+    ],
+    info:"O Ignite V80 é conhecido pela potência equilibrada, sabor limpo e design moderno."
+  }
+};
+
+function openModal(id){
+  const p = products[id];
+  document.getElementById("modalTitle").innerText = p.title;
+  document.getElementById("modalPrice").innerText = p.price;
+  document.getElementById("modalImg").src = p.img;
+
+  const ul = document.getElementById("modalFlavors");
+  ul.innerHTML="";
+  p.flavors.forEach(f=>{
+    const li=document.createElement("li");
+    li.innerText=f;
+    ul.appendChild(li);
+  });
+
+  document.getElementById("modalInfo").innerText = p.info;
+  document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
 </html>
