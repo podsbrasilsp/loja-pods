@@ -1,184 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Pods do Ribeiro</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#0e0e0e;
-  color:#fff;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-header{
-  padding:25px;
-  text-align:center;
-  background:#000;
-}
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-header h1{
-  margin:0;
-  font-size:32px;
-}
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
 
-header p{
-  color:#bbb;
-  margin:5px 0;
-}
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
 
-.warning{
-  background:#b30000;
-  padding:10px;
-  text-align:center;
-  font-size:14px;
-  font-weight:bold;
-}
+        .card h1 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
 
-.section{
-  padding:30px 20px;
-  max-width:1300px;
-  margin:auto;
-}
+        .card p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-bottom: 15px;
+        }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:18px;
-}
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.card{
-  background:#1a1a1a;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 0 15px #000;
-}
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #00ff88;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  background:#000;
-}
-
-.card-content{
-  padding:15px;
-  text-align:center;
-}
-
-.card h3{
-  margin:8px 0;
-  font-size:18px;
-  color:#00ffcc;
-}
-
-.price{
-  font-size:20px;
-  font-weight:bold;
-  color:#00ff88;
-  margin-bottom:10px;
-}
-
-.btn{
-  background:linear-gradient(45deg,#00ff88,#00ccff);
-  color:#000;
-  padding:10px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:bold;
-}
-</style>
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <h1>• PODS DO RIBEIRO •</h1>
-  <p>@pods.doribeiro • Delivery 🛵</p>
-</header>
-
-<div class="warning">
-⚠️ Venda apenas para maiores de 18 anos • Pods não possuem troca ou garantia
-</div>
-
-<section class="section">
-  <div class="grid">
-
-    <!-- CARD -->
     <div class="card">
-      <img src="./imagens/tequila15k.jpg" alt="Tequila Vape 15K">
-      <div class="card-content">
-        <h3>TEQUILA VAPE 15K</h3>
-        <div class="price">R$ 54,99</div>
-        <div class="btn" onclick="openModal('tequila15k')">Ver detalhes</div>
-      </div>
+        <img src="./images/tequila15k.jpg" alt="Tequila Vape 15K">
+
+        <h1>Tequila Vape 15K</h1>
+
+        <p>Sabor intenso, alta durabilidade e design premium.</p>
+
+        <div class="price">R$ 149,90</div>
+
+        <a href="#" class="btn">Comprar agora</a>
     </div>
-
-    <!-- PADRÃO PARA TODOS OS OUTROS -->
-    <div class="card">
-      <img src="./imagens/placeholder.jpg" alt="Produto">
-      <div class="card-content">
-        <h3>LOST M 15K</h3>
-        <div class="price">R$ 74,99</div>
-        <div class="btn" onclick="openModal('lostm15k')">Ver detalhes</div>
-      </div>
-    </div>
-
-    <!-- (todos os outros cards seguem exatamente o mesmo padrão) -->
-
-  </div>
-</section>
-
-<!-- MODAL -->
-<div id="modal" style="display:none; position:fixed; inset:0; background:#000c; padding:20px;">
-  <div style="background:#111; max-width:600px; margin:auto; padding:20px; border-radius:15px; overflow-y:auto; max-height:90vh;">
-    <h2 id="mTitle"></h2>
-    <p id="mPrice"></p>
-    <ul id="mFlavors"></ul>
-    <p id="mInfo">ATENÇÃO: POD NÃO POSSUI GARANTIA OU TROCA</p>
-    <div class="btn" onclick="closeModal()">Fechar</div>
-  </div>
-</div>
-
-<script>
-const products = {
-  tequila15k:{
-    title:"TEQUILA VAPE 15K",
-    price:"R$ 54,99",
-    flavors:[
-      "Strawberry Banana Dragonfruit",
-      "Strawberry Banana",
-      "Strawberry Watermelon",
-      "Strawberry Bubblegum",
-      "Berry Cherry",
-      "Sweet Orange Cranberry Berry"
-    ]
-  }
-  // restante dos produtos permanece igual
-};
-
-function openModal(id){
-  const p = products[id];
-  document.getElementById("mTitle").innerText = p.title;
-  document.getElementById("mPrice").innerText = p.price;
-
-  const ul = document.getElementById("mFlavors");
-  ul.innerHTML="";
-  p.flavors.forEach(f=>{
-    const li=document.createElement("li");
-    li.innerText=f;
-    ul.appendChild(li);
-  });
-
-  document.getElementById("modal").style.display="block";
-}
-
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-</script>
 
 </body>
 </html>
