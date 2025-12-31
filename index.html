@@ -19,19 +19,12 @@ header{
   background:#000;
 }
 
-header h1{
-  margin:0;
-  font-size:32px;
-}
-
-header p{
-  color:#bbb;
-  margin:5px 0;
-}
+header h1{margin:0;font-size:32px;}
+header p{color:#bbb;margin:5px 0;}
 
 .warning{
   background:#b30000;
-  padding:10px;
+  padding:12px;
   text-align:center;
   font-size:14px;
   font-weight:bold;
@@ -68,87 +61,50 @@ header p{
   text-align:center;
 }
 
-.badge{
-  background:#ff0000;
-  color:#fff;
-  padding:4px 8px;
-  border-radius:6px;
-  font-size:12px;
-  font-weight:bold;
-}
-
 .card h3{
-  margin:10px 0 5px;
-  font-size:18px;
+  margin:8px 0;
+  font-size:17px;
   color:#00ffcc;
-}
-
-.old-price{
-  text-decoration:line-through;
-  color:#888;
-  font-size:14px;
 }
 
 .price{
   font-size:20px;
   font-weight:bold;
   color:#00ff88;
+  margin-bottom:10px;
 }
 
-.stock{
-  margin-top:6px;
-  font-size:14px;
-  font-weight:bold;
-  color:#ff5555;
-}
-
-.low-stock{
-  animation:pulse 1.2s infinite;
-}
-
-@keyframes pulse{
-  0%{opacity:1;}
-  50%{opacity:0.6;}
-  100%{opacity:1;}
-}
-
-.btn-buy{
-  display:block;
-  margin-top:12px;
+.btn{
   background:linear-gradient(45deg,#00ff88,#00ccff);
   color:#000;
   padding:10px;
   border-radius:10px;
-  text-decoration:none;
+  cursor:pointer;
   font-weight:bold;
 }
 
-.timer-box{
-  background:#111;
-  border:2px dashed #ff4444;
-  padding:15px;
-  text-align:center;
-  border-radius:12px;
-  margin:30px 0;
+/* MODAL */
+#modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:999;
 }
 
-.timer{
-  font-size:22px;
+.modal-box{
+  background:#111;
+  max-width:520px;
+  margin:40px auto;
+  padding:20px;
+  border-radius:15px;
+}
+
+.close{
+  text-align:right;
+  cursor:pointer;
+  color:#ff5555;
   font-weight:bold;
-  color:#ff4444;
-}
-
-.payment{
-  background:#111;
-  padding:25px;
-  border-radius:14px;
-  text-align:center;
-}
-
-.payment img{
-  width:220px;
-  margin-top:15px;
-  border-radius:12px;
 }
 </style>
 </head>
@@ -158,85 +114,64 @@ header p{
 <header>
   <h1>• PODS DO RIBEIRO •</h1>
   <p>@podss.doribeiro_ • Delivery 🛵</p>
+  <p style="color:#00ff88;font-weight:bold;">
+Promoção Fim de Ano / Início de Ano • até 12/01
+</p>
 </header>
 
 <div class="warning">
-⚠️ Venda apenas para maiores de 18 anos
+🎉 Promoção especial válida até 12 de janeiro • Pagamento via PIX Mercado Pago
 </div>
 
 <section class="section">
+<div class="grid">
 
-  <!-- TIMER -->
-  <div class="timer-box">
-    🔥 Promoção termina em:
-    <div class="timer" id="timer">00:00:00</div>
-  </div>
+<!-- LISTA COMPLETA -->
+<div class="card"><img src="images/tequila15k.jpg"><div class="card-content"><h3>TEQUILA VAPE 15K</h3><div class="price">R$ 54,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-  <!-- PRODUTOS -->
-  <div class="grid">
+<div class="card"><img src="images/lostm15k.jpg"><div class="card-content"><h3>LOST M 15K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-    <div class="card">
-      <img src="images/tequila15k.jpg" alt="Tequila Vape 15K">
-      <div class="card-content">
-        <span class="badge">15% OFF</span>
-        <h3>TEQUILA VAPE 15K</h3>
-        <div class="old-price">R$ 64,99</div>
-        <div class="price">R$ 54,99</div>
-        <div class="stock low-stock">🔥 Últimas 3 unidades</div>
-        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
-      </div>
-    </div>
+<div class="card"><img src="images/waka25k.jpg"><div class="card-content"><h3>WAKA 25K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-    <div class="card">
-      <img src="images/ignite-v80.jpg" alt="Ignite V80">
-      <div class="card-content">
-        <span class="badge">15% OFF</span>
-        <h3>IGNITE V80</h3>
-        <div class="old-price">R$ 117,99</div>
-        <div class="price">R$ 99,99</div>
-        <div class="stock low-stock">⚠️ Apenas 2 unidades</div>
-        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
-      </div>
-    </div>
+<div class="card"><img src="images/adjust40k.jpg"><div class="card-content"><h3>ADJUST 40K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-    <div class="card">
-      <img src="images/ignite-v250.jpg" alt="Ignite V250">
-      <div class="card-content">
-        <span class="badge">15% OFF</span>
-        <h3>IGNITE V250</h3>
-        <div class="old-price">R$ 129,99</div>
-        <div class="price">R$ 109,99</div>
-        <div class="stock">⏳ Estoque limitado</div>
-        <a href="#pagamento" class="btn-buy">COMPRAR AGORA</a>
-      </div>
-    </div>
+<div class="card"><img src="images/waka36k.jpg"><div class="card-content"><h3>WAKA 36K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-  </div>
+<div class="card"><img src="images/ignite-v50.jpg"><div class="card-content"><h3>IGNITE V50</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-  <!-- PAGAMENTO -->
-  <div id="pagamento" class="payment">
-    <h2>Pagamento via PIX</h2>
-    <p>Banco: Mercado Pago</p>
-    <p>Escaneie o QR Code abaixo para finalizar a compra</p>
-    <img src="qrcode/pix-mercadopago.png" alt="PIX Mercado Pago">
-  </div>
+<div class="card"><img src="images/ignite-v80.jpg"><div class="card-content"><h3>IGNITE V80</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
+<div class="card"><img src="images/ignite-v250.jpg"><div class="card-content"><h3>IGNITE V250</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/ignite-v300.jpg"><div class="card-content"><h3>IGNITE V300</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-bc15k.jpg"><div class="card-content"><h3>ELFBAR BC15K</h3><div class="price">R$ 79,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+</div>
 </section>
 
+<!-- MODAL -->
+<div id="modal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="close" onclick="closeModal()">✖ Fechar</div>
+    <h2>Pagamento via PIX</h2>
+    <p>Escaneie o QR Code abaixo:</p>
+    <img src="qrcode/pix-mercadopago.png" style="width:100%;max-width:300px;display:block;margin:auto;">
+    <p style="font-size:14px;color:#aaa;text-align:center;margin-top:10px;">
+Após o pagamento, envie o comprovante no Instagram <strong>@podss.doribeiro_</strong>
+</p>
+  </div>
+</div>
+
 <script>
-// TIMER FAKE (4 HORAS)
-let time = 4 * 60 * 60;
-
-setInterval(() => {
-  let h = Math.floor(time / 3600);
-  let m = Math.floor((time % 3600) / 60);
-  let s = time % 60;
-
-  document.getElementById("timer").innerHTML =
-    `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-
-  if(time > 0) time--;
-}, 1000);
+function openModal(){
+  document.getElementById("modal").style.display="block";
+}
+function closeModal(e){
+  if(!e || e.target.id==="modal"){
+    document.getElementById("modal").style.display="none";
+  }
+}
 </script>
 
 </body>
