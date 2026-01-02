@@ -2,16 +2,16 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Pods do Ribeiro • Loja Oficial</title>
+<title>Pods do Ribeiro</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
   --azul:#00c3ff;
-  --azul-escuro:#0a1a2a;
-  --preto:#000;
-  --cinza:#bfc9d4;
-  --verde:#00ff88;
+  --azul2:#0066ff;
+  --preto:#0b0b0b;
+  --cinza:#141414;
+  --branco:#ffffff;
 }
 
 *{box-sizing:border-box}
@@ -19,126 +19,110 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#05080d;
-  color:#fff;
+  background:var(--preto);
+  color:var(--branco);
 }
 
-/* HEADER */
 header{
-  background:linear-gradient(180deg,#000,#0a1a2a);
   padding:30px 20px;
   text-align:center;
-  border-bottom:2px solid var(--azul);
+  background:linear-gradient(180deg,#000,#111);
 }
-.logo{
+
+header img{
+  max-width:120px;
   margin-bottom:10px;
 }
-.logo img{
-  max-width:160px;
-}
+
 header h1{
-  margin:10px 0 0;
+  margin:0;
   font-size:34px;
-  color:#fff;
 }
+
 header p{
   margin:6px 0;
-  color:var(--cinza);
+  color:#ccc;
 }
+
 .promo{
-  margin-top:8px;
-  color:var(--verde);
+  color:var(--azul);
   font-weight:bold;
 }
 
-/* TRUST BAR */
-.trust-bar{
-  background:#0b1320;
-  padding:12px;
+.trust{
+  background:#111;
   text-align:center;
+  padding:12px;
   font-size:14px;
-  border-bottom:1px solid #132033;
+  border-top:1px solid #222;
+  border-bottom:1px solid #222;
 }
 
-/* SECTION */
 .section{
-  padding:35px 18px;
-  max-width:1350px;
+  padding:30px 18px;
+  max-width:1400px;
   margin:auto;
 }
-.section h2{
-  text-align:center;
-  margin-bottom:25px;
-  color:var(--azul);
-  letter-spacing:1px;
-}
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-  gap:20px;
+  gap:18px;
 }
 
-/* CARD */
 .card{
-  background:#0c1422;
-  border-radius:18px;
+  background:var(--cinza);
+  border-radius:16px;
   overflow:hidden;
-  box-shadow:0 0 25px rgba(0,0,0,.7);
-  transition:.25s;
+  box-shadow:0 0 18px rgba(0,0,0,.6);
+  transition:.2s;
 }
-.card:hover{
-  transform:translateY(-5px);
-}
+
+.card:hover{transform:translateY(-4px)}
+
 .card img{
   width:100%;
-  height:230px;
+  height:220px;
   object-fit:contain;
   background:#000;
 }
+
 .card-content{
   padding:16px;
   text-align:center;
 }
+
 .card h3{
-  margin:8px 0;
   font-size:15px;
-  color:#fff;
+  color:var(--azul);
 }
+
 .price{
-  font-size:21px;
+  font-size:20px;
   font-weight:bold;
-  color:var(--verde);
-  margin:10px 0;
+  color:#00ff88;
 }
-.old-price{
-  font-size:13px;
-  color:#889;
-  text-decoration:line-through;
-}
+
 .btn{
-  background:linear-gradient(45deg,var(--azul),#4dd2ff);
+  margin-top:10px;
+  background:linear-gradient(45deg,var(--azul),var(--azul2));
   color:#000;
-  padding:12px;
-  border-radius:14px;
+  padding:10px;
+  border-radius:10px;
   cursor:pointer;
   font-weight:bold;
 }
 
-/* FOOTER */
 footer{
   background:#000;
-  padding:30px 15px;
+  padding:25px;
   text-align:center;
   font-size:14px;
   color:#aaa;
-  border-top:2px solid var(--azul);
 }
-footer strong{color:#fff}
 
-/* MODAL */
-#modal{
+/* MODAIS */
+.modal{
   display:none;
   position:fixed;
   inset:0;
@@ -146,35 +130,33 @@ footer strong{color:#fff}
   z-index:999;
   overflow:auto;
 }
+
 .modal-box{
-  background:#0c1422;
+  background:#111;
   max-width:520px;
   margin:40px auto;
   padding:22px;
-  border-radius:20px;
-  border:1px solid var(--azul);
+  border-radius:18px;
 }
+
 .close{
   text-align:right;
   cursor:pointer;
   color:#ff6666;
   font-weight:bold;
 }
-.modal-box h2{
-  text-align:center;
-  margin-top:0;
-  color:var(--azul);
-}
-.modal-box img{
+
+select, input{
   width:100%;
-  max-width:280px;
-  display:block;
-  margin:20px auto;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
 }
-.modal-box p{
+
+.cart-item{
+  border-bottom:1px solid #222;
+  padding:10px 0;
   font-size:14px;
-  color:#ccc;
-  text-align:center;
 }
 </style>
 </head>
@@ -182,73 +164,128 @@ footer strong{color:#fff}
 <body>
 
 <header>
-  <div class="logo">
-    <!-- COLOQUE SUA LOGO AQUI -->
-    <img src="images/logo.png" alt="Logo Pods do Ribeiro">
-  </div>
+  <!-- <img src="images/logo.png"> -->
   <h1>PODS DO RIBEIRO</h1>
   <p>@podss.doribeiro_ • Delivery rápido 🛵</p>
-  <p class="promo">Promoção Fim/Ano & Início/Ano • até 12 de janeiro</p>
+  <p class="promo">Promoção Fim/Ano válida até 12 de janeiro</p>
 </header>
 
-<div class="trust-bar">
-🔒 Pagamento 100% seguro via PIX Mercado Pago • Atendimento direto no Instagram
+<div class="trust">
+🔒 Pagamento seguro via PIX Mercado Pago • Atendimento via Instagram
 </div>
 
 <section class="section">
-<h2>Catálogo de Produtos</h2>
-
-<div class="grid">
-
-<!-- EXEMPLO DE CARD (todos seguem o mesmo padrão) -->
-<div class="card">
-  <img src="images/tequila15k.jpg">
-  <div class="card-content">
-    <h3>TEQUILA VAPE 15K</h3>
-    <div class="old-price">R$ 64,99</div>
-    <div class="price">R$ 54,99</div>
-    <div class="btn" onclick="openModal()">Comprar agora</div>
-  </div>
-</div>
-
-<!-- (Os outros pods seguem exatamente esse modelo — 
-use os mesmos nomes de imagem que você já tem) -->
-
-</div>
+<div class="grid" id="products"></div>
 </section>
 
 <footer>
 <strong>Pagamento via PIX Mercado Pago</strong><br>
-Escaneie o QR Code e envie o comprovante para<br>
-<strong>@podss.doribeiro_</strong><br><br>
-Entrega rápida • Atendimento humanizado • Loja confiável
+Envie o comprovante para <strong>@podss.doribeiro_</strong>
 </footer>
 
-<!-- MODAL PIX -->
-<div id="modal" onclick="closeModal(event)">
+<!-- MODAL PRODUTO -->
+<div class="modal" id="productModal">
   <div class="modal-box">
-    <div class="close" onclick="closeModal()">✖ Fechar</div>
-    <h2>Pagar com PIX</h2>
-    <img src="qrcode/pix-mercadopago.png" alt="QR Code PIX">
-    <p>
-      Escaneie o QR Code acima<br>
-      e envie o comprovante no Instagram<br>
-      <strong>@podss.doribeiro_</strong>
+    <div class="close" onclick="closeProduct()">✖</div>
+    <h2 id="pName"></h2>
+    <img id="pImg" style="width:100%;max-width:260px;display:block;margin:auto;">
+    <p id="pPrice"></p>
+
+    <label>Sabor:</label>
+    <select id="pFlavor"></select>
+
+    <label>Quantidade:</label>
+    <input type="number" id="pQty" value="1" min="1">
+
+    <div class="btn" onclick="addToCart()">Adicionar ao carrinho</div>
+  </div>
+</div>
+
+<!-- MODAL CARRINHO -->
+<div class="modal" id="cartModal">
+  <div class="modal-box">
+    <div class="close" onclick="closeCart()">✖</div>
+    <h2>Carrinho</h2>
+    <div id="cartItems"></div>
+    <p id="cartTotal"></p>
+    <div class="btn" onclick="openPayment()">Finalizar compra</div>
+  </div>
+</div>
+
+<!-- MODAL PAGAMENTO -->
+<div class="modal" id="payModal">
+  <div class="modal-box">
+    <div class="close" onclick="closePay()">✖</div>
+    <h2>Pagamento PIX</h2>
+    <img src="qrcode/pix-mercadopago.png" style="width:100%;max-width:260px;display:block;margin:auto;">
+    <p style="text-align:center;font-size:14px;">
+      Envie o comprovante para <strong>@podss.doribeiro_</strong>
     </p>
   </div>
 </div>
 
 <script>
-function openModal(){
-  document.getElementById("modal").style.display="block";
-  document.body.style.overflow="hidden";
+const products = [
+ {name:"TEQUILA VAPE 15K",price:54.99,img:"images/tequila15k.jpg",flavors:["Morango","Banana","Uva"]},
+ {name:"LOST M 15K",price:74.99,img:"images/lost-m-15k.jpg",flavors:["Mint","Grape"]},
+ {name:"WAKA 25K",price:74.99,img:"images/waka-25k.jpg",flavors:["Blueberry","Ice"]},
+ {name:"WAKA 36K",price:89.99,img:"images/waka-36k.jpg",flavors:["Mango","Mint"]},
+ {name:"ADJUST 40K",price:89.99,img:"images/adjust-40k.jpg",flavors:["Cherry Fuse","Blue Razz"]},
+];
+
+let cart=[];
+let current=null;
+
+const grid=document.getElementById("products");
+products.forEach((p,i)=>{
+  grid.innerHTML+=`
+  <div class="card">
+    <img src="${p.img}">
+    <div class="card-content">
+      <h3>${p.name}</h3>
+      <div class="price">R$ ${p.price.toFixed(2)}</div>
+      <div class="btn" onclick="openProduct(${i})">Comprar</div>
+    </div>
+  </div>`;
+});
+
+function openProduct(i){
+ current=products[i];
+ document.getElementById("pName").innerText=current.name;
+ document.getElementById("pImg").src=current.img;
+ document.getElementById("pPrice").innerText="R$ "+current.price.toFixed(2);
+ const f=document.getElementById("pFlavor");
+ f.innerHTML="";
+ current.flavors.forEach(x=>f.innerHTML+=`<option>${x}</option>`);
+ document.getElementById("productModal").style.display="block";
 }
-function closeModal(e){
-  if(!e || e.target.id==="modal"){
-    document.getElementById("modal").style.display="none";
-    document.body.style.overflow="auto";
-  }
+
+function closeProduct(){document.getElementById("productModal").style.display="none"}
+
+function addToCart(){
+ cart.push({
+  name:current.name,
+  price:current.price,
+  qty:parseInt(document.getElementById("pQty").value)
+ });
+ closeProduct();
+ openCart();
 }
+
+function openCart(){
+ let html="",total=0;
+ cart.forEach(i=>{
+  total+=i.price*i.qty;
+  html+=`<div class="cart-item">${i.name} x${i.qty}</div>`;
+ });
+ document.getElementById("cartItems").innerHTML=html;
+ document.getElementById("cartTotal").innerText="Total: R$ "+total.toFixed(2);
+ document.getElementById("cartModal").style.display="block";
+}
+
+function closeCart(){document.getElementById("cartModal").style.display="none"}
+function openPayment(){closeCart();document.getElementById("payModal").style.display="block"}
+function closePay(){document.getElementById("payModal").style.display="none"}
 </script>
 
 </body>
