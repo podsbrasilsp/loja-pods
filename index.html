@@ -6,215 +6,101 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#0b0b0b;
-  color:#fff;
-  overflow-x:hidden;
-}
-header{
-  padding:30px 20px;
-  text-align:center;
-  background:linear-gradient(180deg,#000,#111);
-}
-header h1{
-  margin:0;
-  font-size:34px;
-}
-header p{color:#bbb;margin:6px 0;}
-.promo{color:#00ff88;font-weight:bold;}
-
-.trust-bar{
-  background:#121212;
-  padding:12px;
-  text-align:center;
-  font-size:14px;
-  border-top:1px solid #1f1f1f;
-  border-bottom:1px solid #1f1f1f;
-}
-
-.section{
-  padding:30px 18px;
-  max-width:1300px;
-  margin:auto;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:18px;
-}
-.card{
-  background:#161616;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 0 20px rgba(0,0,0,.6);
-  transition:.2s;
-}
-.card:hover{transform:translateY(-4px);}
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-  background:#000;
-}
-.card-content{
-  padding:16px;
-  text-align:center;
-}
-.card h3{
-  margin:8px 0;
-  font-size:15px;
-  color:#00ffd0;
-}
-.price{
-  font-size:21px;
-  font-weight:bold;
-  color:#00ff88;
-  margin-bottom:12px;
-}
-.btn{
-  background:linear-gradient(45deg,#00ff88,#00c3ff);
-  color:#000;
-  padding:11px;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:bold;
-}
-.btn:hover{opacity:.9;transform:scale(1.02);}
-
-footer{
-  background:#000;
-  padding:25px 15px;
-  text-align:center;
-  font-size:14px;
-  color:#aaa;
-}
-footer strong{color:#00ff88;}
-
-#modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  z-index:999;
-}
-.modal-box{
-  background:#111;
-  max-width:520px;
-  margin:40px auto;
-  padding:22px;
-  border-radius:18px;
-}
-.close{
-  text-align:right;
-  cursor:pointer;
-  color:#ff6666;
-  font-weight:bold;
-}
-.modal-box img{
-  width:100%;
-  max-width:260px;
-  display:block;
-  margin:15px auto;
-}
-select{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  margin:10px 0;
-}
+body{margin:0;font-family:Arial;background:#0b0b0b;color:#fff}
+header{text-align:center;padding:30px;background:#000}
+h1{margin:0}
+.promo{color:#00ff88;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.card{background:#161616;border-radius:16px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:contain;background:#000}
+.card-content{text-align:center;padding:15px}
+.price{color:#00ff88;font-size:20px}
+.btn{background:#00ff88;color:#000;padding:10px;border-radius:10px;cursor:pointer}
+#modal,#cart{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9)}
+.box{background:#111;margin:40px auto;max-width:500px;padding:20px;border-radius:16px}
+select{width:100%;padding:10px;border-radius:10px;margin:10px 0}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>PODS DO RIBEIRO</h1>
-  <p>@podss.doribeiro_ • Delivery rápido 🛵</p>
-  <p class="promo">Promoção Fim de Ano / Início de Ano • válida até 12 de janeiro</p>
+<h1>PODS DO RIBEIRO</h1>
+<p>@podss.doribeiro_</p>
+<p class="promo">Promoção até 12 de janeiro</p>
 </header>
 
-<div class="trust-bar">
-✅ PIX Mercado Pago • 📦 Envio rápido • 📲 Atendimento Instagram
-</div>
+<section class="grid">
 
-<section class="section">
-<div class="grid">
-
-<!-- PRODUTO -->
 <div class="card">
-<img src="images/tequila15k.jpg">
+<img src="images/adjust-40k.jpg">
 <div class="card-content">
-<h3>TEQUILA VAPE 15K</h3>
-<div class="price">R$ 54,99</div>
-<div class="btn" onclick="openModal('TEQUILA VAPE 15K', 'R$ 54,99')">Comprar agora</div>
+<h3>ADJUST 40K</h3>
+<div class="price">R$ 89,99</div>
+<div class="btn" onclick="openProduct('ADJUST 40K',89.99,['Cherry Fuse','Blue Razz Ice','Strawberry Ice','Watermelon Ice','Mint Ice'])">Comprar</div>
 </div>
 </div>
 
-<!-- Repita o mesmo padrão para todos os outros pods -->
-<!-- O resto pode ficar exatamente como você já tem -->
+<!-- Você replica esse bloco para TODOS os pods mudando nome, preço e sabores -->
 
-</div>
 </section>
 
-<footer>
-<strong>Pagamento via PIX Mercado Pago</strong><br>
-Envie o comprovante para <strong>@podss.doribeiro_</strong><br>
-Entrega rápida • Confiança • Qualidade
-</footer>
-
-<!-- MODAL -->
+<!-- MODAL PRODUTO -->
 <div id="modal">
-  <div class="modal-box">
-    <div class="close" onclick="closeModal()">✖ Fechar</div>
+<div class="box">
+<h3 id="pName"></h3>
+<select id="pFlavor"></select>
+<div class="btn" onclick="addToCart()">Adicionar ao carrinho</div>
+<div class="btn" onclick="closeModal()">Cancelar</div>
+</div>
+</div>
 
-    <h2 id="productName"></h2>
-    <p id="productPrice"></p>
-
-    <label>Escolha o sabor:</label>
-    <select id="flavor">
-      <option>Consultar sabores disponíveis</option>
-      <option>Menta</option>
-      <option>Morango</option>
-      <option>Uva</option>
-      <option>Melancia</option>
-    </select>
-
-    <img src="qrcode/pix-mercadopago.png">
-
-    <p style="text-align:center">
-    Pague via PIX Mercado Pago<br>
-    Envie o comprovante no Instagram<br>
-    <strong>@podss.doribeiro_</strong>
-    </p>
-
-    <div class="btn" onclick="sendMessage()">Enviar pedido no Instagram</div>
-  </div>
+<!-- CARRINHO -->
+<div id="cart">
+<div class="box">
+<h3>Carrinho</h3>
+<div id="cartItems"></div>
+<img src="qrcode/pix-mercadopago.png" width="200">
+<div class="btn" onclick="sendOrder()">Enviar pedido no Instagram</div>
+<div class="btn" onclick="closeCart()">Fechar</div>
+</div>
 </div>
 
 <script>
-let currentProduct = "";
+let cart=[];
+let currentProduct={};
 
-function openModal(name, price){
-  currentProduct = name;
-  document.getElementById("productName").innerText = name;
-  document.getElementById("productPrice").innerText = price;
-  document.getElementById("modal").style.display="block";
-  document.body.style.overflow="hidden";
+function openProduct(name,price,flavors){
+currentProduct={name,price};
+document.getElementById("pName").innerText=name;
+let sel=document.getElementById("pFlavor");
+sel.innerHTML="";
+flavors.forEach(f=>sel.innerHTML+=`<option>${f}</option>`);
+document.getElementById("modal").style.display="block";
 }
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-  document.body.style.overflow="auto";
+function closeModal(){document.getElementById("modal").style.display="none"}
+
+function addToCart(){
+currentProduct.flavor=document.getElementById("pFlavor").value;
+cart.push(currentProduct);
+closeModal();
+openCart();
 }
 
-function sendMessage(){
-  const flavor = document.getElementById("flavor").value;
-  const msg = `Olá! Quero comprar:\n${currentProduct}\nSabor: ${flavor}`;
-  const url = `https://instagram.com/podss.doribeiro_`;
-  window.open(url, "_blank");
+function openCart(){
+let list=document.getElementById("cartItems");
+list.innerHTML="";
+cart.forEach(p=>list.innerHTML+=`<p>${p.name} - ${p.flavor}</p>`);
+document.getElementById("cart").style.display="block";
+}
+
+function closeCart(){document.getElementById("cart").style.display="none"}
+
+function sendOrder(){
+let msg="Pedido:%0A";
+cart.forEach(p=>msg+=`${p.name} (${p.flavor})%0A`);
+window.open("https://instagram.com/podss.doribeiro_","_blank");
 }
 </script>
 
