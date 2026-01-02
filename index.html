@@ -9,102 +9,129 @@
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:#0e0e0e;
+  background:#0b0b0b;
   color:#fff;
 }
-
 header{
-  padding:25px;
+  padding:30px 20px;
   text-align:center;
-  background:#000;
+  background:linear-gradient(180deg,#000,#111);
 }
-
-header h1{margin:0;font-size:32px;}
-header p{color:#bbb;margin:5px 0;}
-
-.warning{
-  background:#b30000;
+header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:1px;
+}
+header p{
+  margin:6px 0;
+  color:#bbb;
+}
+.promo{
+  color:#00ff88;
+  font-weight:bold;
+  margin-top:10px;
+}
+.trust-bar{
+  background:#121212;
   padding:12px;
   text-align:center;
   font-size:14px;
-  font-weight:bold;
+  border-top:1px solid #1f1f1f;
+  border-bottom:1px solid #1f1f1f;
 }
-
 .section{
-  padding:30px 20px;
+  padding:30px 18px;
   max-width:1300px;
   margin:auto;
 }
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
   gap:18px;
 }
-
 .card{
-  background:#1a1a1a;
-  border-radius:14px;
+  background:#161616;
+  border-radius:16px;
   overflow:hidden;
-  box-shadow:0 0 15px #000;
+  box-shadow:0 0 20px rgba(0,0,0,.6);
+  transition:.2s;
 }
-
+.card:hover{
+  transform:translateY(-4px);
+}
 .card img{
   width:100%;
   height:220px;
   object-fit:contain;
   background:#000;
 }
-
 .card-content{
-  padding:15px;
+  padding:16px;
   text-align:center;
 }
-
 .card h3{
   margin:8px 0;
-  font-size:17px;
-  color:#00ffcc;
+  font-size:15px;
+  color:#00ffd0;
 }
-
 .price{
-  font-size:20px;
+  font-size:21px;
   font-weight:bold;
   color:#00ff88;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
-
 .btn{
-  background:linear-gradient(45deg,#00ff88,#00ccff);
+  background:linear-gradient(45deg,#00ff88,#00c3ff);
   color:#000;
-  padding:10px;
-  border-radius:10px;
+  padding:11px;
+  border-radius:12px;
   cursor:pointer;
   font-weight:bold;
 }
+footer{
+  background:#000;
+  padding:25px 15px;
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+}
+footer strong{color:#00ff88;}
 
-/* MODAL */
 #modal{
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.85);
   z-index:999;
+  overflow:auto;
 }
-
 .modal-box{
   background:#111;
   max-width:520px;
   margin:40px auto;
-  padding:20px;
-  border-radius:15px;
+  padding:22px;
+  border-radius:18px;
 }
-
 .close{
   text-align:right;
   cursor:pointer;
-  color:#ff5555;
+  color:#ff6666;
   font-weight:bold;
+}
+.modal-box h2{
+  text-align:center;
+  margin-top:0;
+}
+.modal-box img{
+  width:100%;
+  max-width:280px;
+  display:block;
+  margin:20px auto;
+}
+.modal-box p{
+  font-size:14px;
+  color:#ccc;
+  text-align:center;
 }
 </style>
 </head>
@@ -112,54 +139,77 @@ header p{color:#bbb;margin:5px 0;}
 <body>
 
 <header>
-  <h1>• PODS DO RIBEIRO •</h1>
-  <p>@podss.doribeiro_ • Delivery 🛵</p>
-  <p style="color:#00ff88;font-weight:bold;">
-Promoção Fim de Ano / Início de Ano • até 12/01
-</p>
+  <h1>PODS DO RIBEIRO</h1>
+  <p>@podss.doribeiro_ • Delivery rápido 🛵</p>
+  <p class="promo">Promoção Fim de Ano / Início de Ano • válida até 12 de janeiro</p>
 </header>
 
-<div class="warning">
-🎉 Promoção especial válida até 12 de janeiro • Pagamento via PIX Mercado Pago
+<div class="trust-bar">
+🔒 Pagamento seguro via PIX Mercado Pago • Atendimento direto no Instagram
 </div>
 
 <section class="section">
 <div class="grid">
 
-<!-- LISTA COMPLETA -->
 <div class="card"><img src="images/tequila15k.jpg"><div class="card-content"><h3>TEQUILA VAPE 15K</h3><div class="price">R$ 54,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-<div class="card"><img src="images/lostm15k.jpg"><div class="card-content"><h3>LOST M 15K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<div class="card"><img src="images/lost-m-15k.jpg"><div class="card-content"><h3>LOST M 15K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-<div class="card"><img src="images/waka25k.jpg"><div class="card-content"><h3>WAKA 25K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<div class="card"><img src="images/waka-25k.jpg"><div class="card-content"><h3>WAKA 25K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-<div class="card"><img src="images/adjust40k.jpg"><div class="card-content"><h3>ADJUST 40K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<div class="card"><img src="images/waka-36k.jpg"><div class="card-content"><h3>WAKA 36K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
-<div class="card"><img src="images/waka36k.jpg"><div class="card-content"><h3>WAKA 36K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<div class="card"><img src="images/adjust-40k.jpg"><div class="card-content"><h3>ADJUST 40K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/oxbar-g9-5k.jpg"><div class="card-content"><h3>OXBAR G9 5K</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/oxbar-30k-pro.jpg"><div class="card-content"><h3>OXBAR 30K PRO</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/sex-addict-28k.jpg"><div class="card-content"><h3>SEX ADDICT 28K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
 <div class="card"><img src="images/ignite-v50.jpg"><div class="card-content"><h3>IGNITE V50</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
+<div class="card"><img src="images/ignite-v55-ultra.jpg"><div class="card-content"><h3>IGNITE V55 ULTRA</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
 <div class="card"><img src="images/ignite-v80.jpg"><div class="card-content"><h3>IGNITE V80</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/ignite-v155-ultra.jpg"><div class="card-content"><h3>IGNITE V155 ULTRA</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
 <div class="card"><img src="images/ignite-v250.jpg"><div class="card-content"><h3>IGNITE V250</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
 <div class="card"><img src="images/ignite-v300.jpg"><div class="card-content"><h3>IGNITE V300</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
+<div class="card"><img src="images/ignite-ice-40k.jpg"><div class="card-content"><h3>IGNITE ICE 40K</h3><div class="price">R$ 124,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/ignite-mix-40k.jpg"><div class="card-content"><h3>IGNITE MIX 40K</h3><div class="price">R$ 129,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
 <div class="card"><img src="images/elfbar-bc15k.jpg"><div class="card-content"><h3>ELFBAR BC15K</h3><div class="price">R$ 79,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-ew9k-kit.jpg"><div class="card-content"><h3>ELFBAR EW9K KIT</h3><div class="price">R$ 94,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-gh23k.jpg"><div class="card-content"><h3>ELFBAR GH23K</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-te30k.jpg"><div class="card-content"><h3>ELFBAR TE30K</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-te30k-black-gold.jpg"><div class="card-content"><h3>ELFBAR TE30K BLACK GOLD</h3><div class="price">R$ 114,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+
+<div class="card"><img src="images/elfbar-ice-king-40k.jpg"><div class="card-content"><h3>ELFBAR ICE KING 40K</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
 
 </div>
 </section>
 
-<!-- MODAL -->
+<footer>
+<strong>Pagamento via PIX Mercado Pago</strong><br>
+Após o pagamento, envie o comprovante para <strong>@podss.doribeiro_</strong><br>
+Entrega rápida • Atendimento humanizado • Confiança e qualidade
+</footer>
+
 <div id="modal" onclick="closeModal(event)">
   <div class="modal-box">
     <div class="close" onclick="closeModal()">✖ Fechar</div>
-    <h2>Pagamento via PIX</h2>
-    <p>Escaneie o QR Code abaixo:</p>
-    <img src="qrcode/pix-mercadopago.png" style="width:100%;max-width:300px;display:block;margin:auto;">
-    <p style="font-size:14px;color:#aaa;text-align:center;margin-top:10px;">
-Após o pagamento, envie o comprovante no Instagram <strong>@podss.doribeiro_</strong>
-</p>
+    <h2>Pagar com PIX</h2>
+    <img src="qrcode/pix-mercadopago.png" alt="QR Code PIX Mercado Pago">
+    <p>Escaneie o QR Code e envie o comprovante no Instagram<br><strong>@podss.doribeiro_</strong></p>
   </div>
 </div>
 
@@ -175,4 +225,4 @@ function closeModal(e){
 </script>
 
 </body>
-</html>
+                                                     </html>
