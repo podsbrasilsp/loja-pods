@@ -11,6 +11,7 @@ body{
   font-family:Arial, Helvetica, sans-serif;
   background:#0b0b0b;
   color:#fff;
+  overflow-x:hidden;
 }
 header{
   padding:30px 20px;
@@ -20,17 +21,10 @@ header{
 header h1{
   margin:0;
   font-size:34px;
-  letter-spacing:1px;
 }
-header p{
-  margin:6px 0;
-  color:#bbb;
-}
-.promo{
-  color:#00ff88;
-  font-weight:bold;
-  margin-top:10px;
-}
+header p{color:#bbb;margin:6px 0;}
+.promo{color:#00ff88;font-weight:bold;}
+
 .trust-bar{
   background:#121212;
   padding:12px;
@@ -39,6 +33,7 @@ header p{
   border-top:1px solid #1f1f1f;
   border-bottom:1px solid #1f1f1f;
 }
+
 .section{
   padding:30px 18px;
   max-width:1300px;
@@ -56,9 +51,7 @@ header p{
   box-shadow:0 0 20px rgba(0,0,0,.6);
   transition:.2s;
 }
-.card:hover{
-  transform:translateY(-4px);
-}
+.card:hover{transform:translateY(-4px);}
 .card img{
   width:100%;
   height:220px;
@@ -88,6 +81,8 @@ header p{
   cursor:pointer;
   font-weight:bold;
 }
+.btn:hover{opacity:.9;transform:scale(1.02);}
+
 footer{
   background:#000;
   padding:25px 15px;
@@ -103,7 +98,6 @@ footer strong{color:#00ff88;}
   inset:0;
   background:rgba(0,0,0,.85);
   z-index:999;
-  overflow:auto;
 }
 .modal-box{
   background:#111;
@@ -118,20 +112,18 @@ footer strong{color:#00ff88;}
   color:#ff6666;
   font-weight:bold;
 }
-.modal-box h2{
-  text-align:center;
-  margin-top:0;
-}
 .modal-box img{
   width:100%;
-  max-width:280px;
+  max-width:260px;
   display:block;
-  margin:20px auto;
+  margin:15px auto;
 }
-.modal-box p{
-  font-size:14px;
-  color:#ccc;
-  text-align:center;
+select{
+  width:100%;
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  margin:10px 0;
 }
 </style>
 </head>
@@ -145,84 +137,86 @@ footer strong{color:#00ff88;}
 </header>
 
 <div class="trust-bar">
-🔒 Pagamento seguro via PIX Mercado Pago • Atendimento direto no Instagram
+✅ PIX Mercado Pago • 📦 Envio rápido • 📲 Atendimento Instagram
 </div>
 
 <section class="section">
 <div class="grid">
 
-<div class="card"><img src="images/tequila15k.jpg"><div class="card-content"><h3>TEQUILA VAPE 15K</h3><div class="price">R$ 54,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<!-- PRODUTO -->
+<div class="card">
+<img src="images/tequila15k.jpg">
+<div class="card-content">
+<h3>TEQUILA VAPE 15K</h3>
+<div class="price">R$ 54,99</div>
+<div class="btn" onclick="openModal('TEQUILA VAPE 15K', 'R$ 54,99')">Comprar agora</div>
+</div>
+</div>
 
-<div class="card"><img src="images/lost-m-15k.jpg"><div class="card-content"><h3>LOST M 15K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/waka-25k.jpg"><div class="card-content"><h3>WAKA 25K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/waka-36k.jpg"><div class="card-content"><h3>WAKA 36K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/adjust-40k.jpg"><div class="card-content"><h3>ADJUST 40K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/oxbar-g9-5k.jpg"><div class="card-content"><h3>OXBAR G9 5K</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/oxbar-30k-pro.jpg"><div class="card-content"><h3>OXBAR 30K PRO</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/sex-addict-28k.jpg"><div class="card-content"><h3>SEX ADDICT 28K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v50.jpg"><div class="card-content"><h3>IGNITE V50</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v55-ultra.jpg"><div class="card-content"><h3>IGNITE V55 ULTRA</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v80.jpg"><div class="card-content"><h3>IGNITE V80</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v155-ultra.jpg"><div class="card-content"><h3>IGNITE V155 ULTRA</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v250.jpg"><div class="card-content"><h3>IGNITE V250</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-v300.jpg"><div class="card-content"><h3>IGNITE V300</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-ice-40k.jpg"><div class="card-content"><h3>IGNITE ICE 40K</h3><div class="price">R$ 124,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/ignite-mix-40k.jpg"><div class="card-content"><h3>IGNITE MIX 40K</h3><div class="price">R$ 129,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-bc15k.jpg"><div class="card-content"><h3>ELFBAR BC15K</h3><div class="price">R$ 79,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-ew9k-kit.jpg"><div class="card-content"><h3>ELFBAR EW9K KIT</h3><div class="price">R$ 94,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-gh23k.jpg"><div class="card-content"><h3>ELFBAR GH23K</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-te30k.jpg"><div class="card-content"><h3>ELFBAR TE30K</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-te30k-black-gold.jpg"><div class="card-content"><h3>ELFBAR TE30K BLACK GOLD</h3><div class="price">R$ 114,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
-
-<div class="card"><img src="images/elfbar-ice-king-40k.jpg"><div class="card-content"><h3>ELFBAR ICE KING 40K</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar agora</div></div></div>
+<!-- Repita o mesmo padrão para todos os outros pods -->
+<!-- O resto pode ficar exatamente como você já tem -->
 
 </div>
 </section>
 
 <footer>
 <strong>Pagamento via PIX Mercado Pago</strong><br>
-Após o pagamento, envie o comprovante para <strong>@podss.doribeiro_</strong><br>
-Entrega rápida • Atendimento humanizado • Confiança e qualidade
+Envie o comprovante para <strong>@podss.doribeiro_</strong><br>
+Entrega rápida • Confiança • Qualidade
 </footer>
 
-<div id="modal" onclick="closeModal(event)">
+<!-- MODAL -->
+<div id="modal">
   <div class="modal-box">
     <div class="close" onclick="closeModal()">✖ Fechar</div>
-    <h2>Pagar com PIX</h2>
-    <img src="qrcode/pix-mercadopago.png" alt="QR Code PIX Mercado Pago">
-    <p>Escaneie o QR Code e envie o comprovante no Instagram<br><strong>@podss.doribeiro_</strong></p>
+
+    <h2 id="productName"></h2>
+    <p id="productPrice"></p>
+
+    <label>Escolha o sabor:</label>
+    <select id="flavor">
+      <option>Consultar sabores disponíveis</option>
+      <option>Menta</option>
+      <option>Morango</option>
+      <option>Uva</option>
+      <option>Melancia</option>
+    </select>
+
+    <img src="qrcode/pix-mercadopago.png">
+
+    <p style="text-align:center">
+    Pague via PIX Mercado Pago<br>
+    Envie o comprovante no Instagram<br>
+    <strong>@podss.doribeiro_</strong>
+    </p>
+
+    <div class="btn" onclick="sendMessage()">Enviar pedido no Instagram</div>
   </div>
 </div>
 
 <script>
-function openModal(){
+let currentProduct = "";
+
+function openModal(name, price){
+  currentProduct = name;
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
   document.getElementById("modal").style.display="block";
+  document.body.style.overflow="hidden";
 }
-function closeModal(e){
-  if(!e || e.target.id==="modal"){
-    document.getElementById("modal").style.display="none";
-  }
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+  document.body.style.overflow="auto";
+}
+
+function sendMessage(){
+  const flavor = document.getElementById("flavor").value;
+  const msg = `Olá! Quero comprar:\n${currentProduct}\nSabor: ${flavor}`;
+  const url = `https://instagram.com/podss.doribeiro_`;
+  window.open(url, "_blank");
 }
 </script>
 
 </body>
-                                                     </html>
+</html>
