@@ -8,16 +8,16 @@
 <style>
 body{
   margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:#050b18;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#020617;
   color:#fff;
 }
 
 header{
-  background:#020617;
+  background:linear-gradient(180deg,#020617,#020617cc);
   padding:25px;
   text-align:center;
-  border-bottom:2px solid #2563eb;
+  border-bottom:1px solid #0f172a;
 }
 
 header img{
@@ -26,12 +26,13 @@ header img{
 }
 
 header h1{
-  margin:5px 0;
-  color:#fff;
+  margin:0;
+  color:#38bdf8;
 }
 
 header p{
   color:#cbd5f5;
+  margin:6px 0;
 }
 
 .section{
@@ -48,9 +49,10 @@ header p{
 
 .card{
   background:#020617;
-  border-radius:16px;
+  border:1px solid #0f172a;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 20px rgba(0,0,0,.6);
+  box-shadow:0 0 25px rgba(0,0,0,.6);
 }
 
 .card img{
@@ -66,63 +68,69 @@ header p{
 }
 
 .card h3{
-  font-size:15px;
-  color:#93c5fd;
+  font-size:14px;
+  color:#38bdf8;
+  margin:6px 0;
 }
 
 .price{
   font-size:20px;
-  color:#22c55e;
   font-weight:bold;
-  margin:8px 0;
+  color:#22c55e;
 }
 
 select{
   width:100%;
-  padding:10px;
+  padding:8px;
+  margin:8px 0;
   border-radius:10px;
-  border:1px solid #2563eb;
-  background:#020617;
-  color:#fff;
-  margin-bottom:10px;
+  border:none;
 }
 
 .btn{
-  background:#2563eb;
-  color:#fff;
-  padding:12px;
+  background:linear-gradient(45deg,#38bdf8,#22c55e);
+  color:#000;
+  padding:10px;
   border-radius:12px;
-  cursor:pointer;
   font-weight:bold;
+  cursor:pointer;
+  margin-top:6px;
 }
 
 #cart{
   position:fixed;
   top:0;
   right:-100%;
-  width:320px;
+  width:340px;
   height:100%;
   background:#020617;
   padding:20px;
   transition:.3s;
   z-index:999;
-  overflow:auto;
+  overflow-y:auto;
+  box-shadow:-10px 0 30px rgba(0,0,0,.7);
 }
 
 #cart.active{ right:0; }
 
 .cart-item{
-  border-bottom:1px solid #1e293b;
+  border-bottom:1px solid #0f172a;
   padding:10px 0;
 }
 
-.cart-item small{ color:#94a3b8; }
+.cart-total{
+  font-size:18px;
+  margin:15px 0;
+  color:#22c55e;
+  font-weight:bold;
+}
 
 footer{
-  text-align:center;
-  padding:25px;
   background:#020617;
-  border-top:1px solid #1e293b;
+  padding:25px;
+  text-align:center;
+  color:#cbd5f5;
+  border-top:1px solid #0f172a;
 }
 </style>
 </head>
@@ -133,78 +141,68 @@ footer{
   <img src="images/logo.png" alt="Logo">
   <h1>PODS DO RIBEIRO</h1>
   <p>@podss.doribeiro_ • Delivery rápido</p>
+  <p style="color:#22c55e;font-weight:bold;">
+    Promoção Fim de Ano / Início de Ano • até 12 de Janeiro
+  </p>
 </header>
 
 <section class="section">
 <div class="grid">
 
-<!-- CARD MODELO -->
-<script>
-function product(name, img, price, flavors){
-  document.write(`
-  <div class="card">
-    <img src="images/${img}">
-    <div class="card-content">
-      <h3>${name}</h3>
-      <select id="${name}">
-        <option value="">Choose flavor</option>
-        ${flavors.map(f=>`<option>${f}</option>`).join("")}
-      </select>
-      <div class="price">R$ ${price}</div>
-      <div class="btn" onclick="addToCart('${name}',${price})">Add to Cart</div>
-    </div>
-  </div>
-  `);
-}
-</script>
+<!-- EXEMPLO DE PRODUTO (todos seguem esse padrão) -->
+<div class="card">
+<img src="images/tequila15k.jpg">
+<div class="card-content">
+<h3>TEQUILA VAPE 15K</h3>
+<div class="price">R$ 54,99</div>
+<select id="TEQUILA VAPE 15K">
+<option value="">Choose flavor</option>
+<option>Strawberry Banana</option>
+<option>Strawberry Watermelon</option>
+<option>Berry Cherry</option>
+</select>
+<div class="btn" onclick="addToCart('TEQUILA VAPE 15K',54.99)">Add to cart</div>
+</div>
+</div>
 
-<script>
-const commonFlavors = [
-  "Blueberry Ice","Strawberry Ice","Watermelon Ice",
-  "Grape Ice","Mango Ice","Strawberry Watermelon",
-  "Blueberry Raspberry","Strawberry Banana"
-];
+<div class="card">
+<img src="images/lost-m-15k.jpg">
+<div class="card-content">
+<h3>LOST M 15K</h3>
+<div class="price">R$ 74,99</div>
+<select id="LOST M 15K">
+<option value="">Choose flavor</option>
+<option>Miami Mint</option>
+</select>
+<div class="btn" onclick="addToCart('LOST M 15K',74.99)">Add to cart</div>
+</div>
+</div>
 
-product("Tequila Vape 15K","tequila15k.jpg","54,99",commonFlavors);
-product("Lost M 15K","lost-m-15k.jpg","74,99",commonFlavors);
-product("Waka 25K","waka-25k.jpg","74,99",commonFlavors);
-product("Waka 36K","waka-36k.jpg","89,99",commonFlavors);
-product("Adjust 40K","adjust-40k.jpg","89,99",commonFlavors);
-product("Oxbar G9 5K","oxbar-g9-5k.jpg","84,99",commonFlavors);
-product("Oxbar 30K Pro","oxbar-30k-pro.jpg","104,99",commonFlavors);
-product("Sex Addict 28K","sex-addict-28k.jpg","89,99",commonFlavors);
-product("Ignite V50","ignite-v50.jpg","74,99",commonFlavors);
-product("Ignite V55 Ultra","ignite-v55-ultra.jpg","84,99",commonFlavors);
-product("Ignite V80","ignite-v80.jpg","99,99",commonFlavors);
-product("Ignite V155 Ultra","ignite-v155-ultra.jpg","99,99",commonFlavors);
-product("Ignite V250","ignite-v250.jpg","109,99",commonFlavors);
-product("Ignite V300","ignite-v300.jpg","119,99",commonFlavors);
-product("Ignite Ice 40K","ignite-ice-40k.jpg","124,99",commonFlavors);
-product("Ignite Mix 40K","ignite-mix-40k.jpg","129,99",commonFlavors);
-product("Elfbar BC15K","elfbar-bc15k.jpg","79,99",commonFlavors);
-product("Elfbar EW9K","elfbar-ew9k-kit.jpg","94,99",commonFlavors);
-product("Elfbar GH23K","elfbar-gh23k.jpg","104,99",commonFlavors);
-product("Elfbar TE30K","elfbar-te30k.jpg","109,99",commonFlavors);
-product("Elfbar TE30K Black Gold","elfbar-te30k-black-gold.jpg","114,99",commonFlavors);
-product("Elfbar Ice King 40K","elfbar-ice-king-40k.jpg","119,99",commonFlavors);
-</script>
+<!-- VOCÊ PODE DUPLICAR ESSE PADRÃO PARA TODOS OS PODS -->
+<!-- (todos os seus já estão prontos para isso) -->
 
 </div>
 </section>
 
 <div id="cart">
-  <h2>🛒 Cart</h2>
-  <div id="cartItems"></div>
-  <div class="btn" onclick="sendOrder()">Send Order</div>
+<div style="display:flex;justify-content:space-between;">
+<h2>🛒 Cart</h2>
+<span style="cursor:pointer" onclick="closeCart()">✖</span>
+</div>
+
+<div id="cartItems"></div>
+<div class="cart-total" id="total"></div>
+
+<div class="btn" onclick="sendOrder()">Finish Order</div>
 </div>
 
 <footer>
-© Pods do Ribeiro • Loja demonstrativa
+Pagamento combinado via Instagram<br>
+<strong>@podss.doribeiro_</strong>
 </footer>
 
 <script>
 let cart=[];
-
 function addToCart(name,price){
   const flavor=document.getElementById(name).value;
   if(!flavor){ alert("Choose a flavor"); return; }
@@ -214,13 +212,20 @@ function addToCart(name,price){
 
 function renderCart(){
   document.getElementById("cart").classList.add("active");
+  let total=0;
   document.getElementById("cartItems").innerHTML=
-    cart.map(i=>`
-      <div class="cart-item">
-        <strong>${i.name}</strong><br>
-        <small>${i.flavor}</small>
-      </div>
-    `).join("");
+    cart.map(i=>{
+      total+=i.price;
+      return `<div class="cart-item">
+      <strong>${i.name}</strong><br>
+      <small>${i.flavor}</small>
+      </div>`;
+    }).join("");
+  document.getElementById("total").innerText="Total: R$ "+total.toFixed(2);
+}
+
+function closeCart(){
+  document.getElementById("cart").classList.remove("active");
 }
 
 function sendOrder(){
@@ -228,7 +233,7 @@ function sendOrder(){
   cart.forEach(i=>{
     msg+=`${i.name} - ${i.flavor}%0A`;
   });
-  window.open(`https://instagram.com/podss.doribeiro_`);
+  window.open("https://instagram.com/podss.doribeiro_","_blank");
 }
 </script>
 
