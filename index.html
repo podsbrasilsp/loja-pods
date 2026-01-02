@@ -6,56 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --azul:#00c3ff;
-  --azul2:#0066ff;
-  --preto:#0b0b0b;
-  --cinza:#141414;
-  --branco:#ffffff;
-}
-
 *{box-sizing:border-box}
-
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
-  background:var(--preto);
-  color:var(--branco);
+  background:#0a0f1a;
+  color:#fff;
 }
-
 header{
   padding:30px 20px;
   text-align:center;
-  background:linear-gradient(180deg,#000,#111);
+  background:linear-gradient(180deg,#000814,#001d3d);
 }
-
 header img{
-  max-width:120px;
-  margin-bottom:10px;
+  max-width:140px;
+  margin-bottom:12px;
 }
-
 header h1{
   margin:0;
   font-size:34px;
+  color:#fff;
 }
+header p{margin:6px 0;color:#cbd5ff}
+.promo{color:#00b4ff;font-weight:bold}
 
-header p{
-  margin:6px 0;
-  color:#ccc;
-}
-
-.promo{
-  color:var(--azul);
-  font-weight:bold;
-}
-
-.trust{
-  background:#111;
-  text-align:center;
+.trust-bar{
+  background:#020617;
   padding:12px;
+  text-align:center;
   font-size:14px;
-  border-top:1px solid #222;
-  border-bottom:1px solid #222;
+  border-top:1px solid #0f172a;
+  border-bottom:1px solid #0f172a;
 }
 
 .section{
@@ -63,66 +44,59 @@ header p{
   max-width:1400px;
   margin:auto;
 }
-
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
 }
-
 .card{
-  background:var(--cinza);
-  border-radius:16px;
+  background:#020617;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 18px rgba(0,0,0,.6);
+  box-shadow:0 0 25px rgba(0,0,0,.6);
   transition:.2s;
 }
-
-.card:hover{transform:translateY(-4px)}
-
+.card:hover{transform:translateY(-6px)}
 .card img{
   width:100%;
   height:220px;
   object-fit:contain;
   background:#000;
 }
-
 .card-content{
   padding:16px;
   text-align:center;
 }
-
 .card h3{
-  font-size:15px;
-  color:var(--azul);
+  margin:8px 0;
+  font-size:14px;
+  color:#38bdf8;
 }
-
 .price{
   font-size:20px;
   font-weight:bold;
-  color:#00ff88;
+  color:#22c55e;
+  margin-bottom:12px;
 }
-
 .btn{
-  margin-top:10px;
-  background:linear-gradient(45deg,var(--azul),var(--azul2));
-  color:#000;
-  padding:10px;
-  border-radius:10px;
+  background:linear-gradient(45deg,#2563eb,#38bdf8);
+  color:#fff;
+  padding:12px;
+  border-radius:14px;
   cursor:pointer;
   font-weight:bold;
 }
 
 footer{
-  background:#000;
+  background:#000814;
   padding:25px;
   text-align:center;
   font-size:14px;
-  color:#aaa;
+  color:#cbd5ff;
 }
+footer strong{color:#38bdf8}
 
-/* MODAIS */
-.modal{
+#modal{
   display:none;
   position:fixed;
   inset:0;
@@ -130,33 +104,30 @@ footer{
   z-index:999;
   overflow:auto;
 }
-
 .modal-box{
-  background:#111;
+  background:#020617;
   max-width:520px;
   margin:40px auto;
   padding:22px;
-  border-radius:18px;
+  border-radius:20px;
 }
-
 .close{
   text-align:right;
   cursor:pointer;
-  color:#ff6666;
+  color:#ef4444;
   font-weight:bold;
 }
-
-select, input{
+.modal-box h2{text-align:center;margin-top:0}
+.modal-box img{
   width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:8px;
+  max-width:280px;
+  display:block;
+  margin:20px auto;
 }
-
-.cart-item{
-  border-bottom:1px solid #222;
-  padding:10px 0;
+.modal-box p{
   font-size:14px;
+  color:#cbd5ff;
+  text-align:center;
 }
 </style>
 </head>
@@ -164,128 +135,75 @@ select, input{
 <body>
 
 <header>
-  <!-- <img src="images/logo.png"> -->
+  <img src="images/logo.png" alt="Logo Pods do Ribeiro">
   <h1>PODS DO RIBEIRO</h1>
   <p>@podss.doribeiro_ • Delivery rápido 🛵</p>
-  <p class="promo">Promoção Fim/Ano válida até 12 de janeiro</p>
+  <p class="promo">Promoção Fim de Ano • válida até 12 de janeiro</p>
 </header>
 
-<div class="trust">
-🔒 Pagamento seguro via PIX Mercado Pago • Atendimento via Instagram
+<div class="trust-bar">
+🔒 Pagamento seguro via PIX Mercado Pago • Atendimento direto no Instagram
 </div>
 
 <section class="section">
-<div class="grid" id="products"></div>
+<div class="grid">
+
+<!-- TEQUILA / WAKA / LOST -->
+<div class="card"><img src="images/tequila15k.jpg"><div class="card-content"><h3>TEQUILA VAPE 15K</h3><div class="price">R$ 54,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/waka-25k.jpg"><div class="card-content"><h3>WAKA 25K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/waka-36k.jpg"><div class="card-content"><h3>WAKA 36K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/lost-m-15k.jpg"><div class="card-content"><h3>LOST M 15K</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+
+<!-- ADJUST / OXBAR -->
+<div class="card"><img src="images/adjust-40k.jpg"><div class="card-content"><h3>ADJUST 40K</h3><div class="price">R$ 89,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/oxbar-g9-5k.jpg"><div class="card-content"><h3>OXBAR G9 5K</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/oxbar-30k-pro.jpg"><div class="card-content"><h3>OXBAR 30K PRO</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+
+<!-- IGNITE -->
+<div class="card"><img src="images/ignite-v50.jpg"><div class="card-content"><h3>IGNITE V50</h3><div class="price">R$ 74,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-v55-ultra.jpg"><div class="card-content"><h3>IGNITE V55 ULTRA</h3><div class="price">R$ 84,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-v80.jpg"><div class="card-content"><h3>IGNITE V80</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-v155-ultra.jpg"><div class="card-content"><h3>IGNITE V155 ULTRA</h3><div class="price">R$ 99,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-v250.jpg"><div class="card-content"><h3>IGNITE V250</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-v300.jpg"><div class="card-content"><h3>IGNITE V300</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-ice-40k.jpg"><div class="card-content"><h3>IGNITE ICE 40K</h3><div class="price">R$ 124,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/ignite-mix-40k.jpg"><div class="card-content"><h3>IGNITE MIX 40K</h3><div class="price">R$ 129,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+
+<!-- ELFBAR -->
+<div class="card"><img src="images/elfbar-bc15k.jpg"><div class="card-content"><h3>ELFBAR BC15K</h3><div class="price">R$ 79,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/elfbar-ew9k-kit.jpg"><div class="card-content"><h3>ELFBAR EW9K KIT</h3><div class="price">R$ 94,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/elfbar-gh23k.jpg"><div class="card-content"><h3>ELFBAR GH23K</h3><div class="price">R$ 104,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/elfbar-te30k.jpg"><div class="card-content"><h3>ELFBAR TE30K</h3><div class="price">R$ 109,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/elfbar-te30k-black-gold.jpg"><div class="card-content"><h3>ELFBAR TE30K BLACK GOLD</h3><div class="price">R$ 114,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+<div class="card"><img src="images/elfbar-ice-king-40k.jpg"><div class="card-content"><h3>ELFBAR ICE KING 40K</h3><div class="price">R$ 119,99</div><div class="btn" onclick="openModal()">Comprar</div></div></div>
+
+</div>
 </section>
 
 <footer>
 <strong>Pagamento via PIX Mercado Pago</strong><br>
-Envie o comprovante para <strong>@podss.doribeiro_</strong>
+Envie o comprovante para <strong>@podss.doribeiro_</strong><br>
+Entrega rápida • Confiança • Qualidade
 </footer>
 
-<!-- MODAL PRODUTO -->
-<div class="modal" id="productModal">
+<div id="modal" onclick="closeModal(event)">
   <div class="modal-box">
-    <div class="close" onclick="closeProduct()">✖</div>
-    <h2 id="pName"></h2>
-    <img id="pImg" style="width:100%;max-width:260px;display:block;margin:auto;">
-    <p id="pPrice"></p>
-
-    <label>Sabor:</label>
-    <select id="pFlavor"></select>
-
-    <label>Quantidade:</label>
-    <input type="number" id="pQty" value="1" min="1">
-
-    <div class="btn" onclick="addToCart()">Adicionar ao carrinho</div>
-  </div>
-</div>
-
-<!-- MODAL CARRINHO -->
-<div class="modal" id="cartModal">
-  <div class="modal-box">
-    <div class="close" onclick="closeCart()">✖</div>
-    <h2>Carrinho</h2>
-    <div id="cartItems"></div>
-    <p id="cartTotal"></p>
-    <div class="btn" onclick="openPayment()">Finalizar compra</div>
-  </div>
-</div>
-
-<!-- MODAL PAGAMENTO -->
-<div class="modal" id="payModal">
-  <div class="modal-box">
-    <div class="close" onclick="closePay()">✖</div>
-    <h2>Pagamento PIX</h2>
-    <img src="qrcode/pix-mercadopago.png" style="width:100%;max-width:260px;display:block;margin:auto;">
-    <p style="text-align:center;font-size:14px;">
-      Envie o comprovante para <strong>@podss.doribeiro_</strong>
-    </p>
+    <div class="close" onclick="closeModal()">✖ Fechar</div>
+    <h2>Pagar com PIX</h2>
+    <img src="qrcode/pix-mercadopago.png">
+    <p>Após o pagamento, envie o comprovante no Instagram<br><strong>@podss.doribeiro_</strong></p>
   </div>
 </div>
 
 <script>
-const products = [
- {name:"TEQUILA VAPE 15K",price:54.99,img:"images/tequila15k.jpg",flavors:["Morango","Banana","Uva"]},
- {name:"LOST M 15K",price:74.99,img:"images/lost-m-15k.jpg",flavors:["Mint","Grape"]},
- {name:"WAKA 25K",price:74.99,img:"images/waka-25k.jpg",flavors:["Blueberry","Ice"]},
- {name:"WAKA 36K",price:89.99,img:"images/waka-36k.jpg",flavors:["Mango","Mint"]},
- {name:"ADJUST 40K",price:89.99,img:"images/adjust-40k.jpg",flavors:["Cherry Fuse","Blue Razz"]},
-];
-
-let cart=[];
-let current=null;
-
-const grid=document.getElementById("products");
-products.forEach((p,i)=>{
-  grid.innerHTML+=`
-  <div class="card">
-    <img src="${p.img}">
-    <div class="card-content">
-      <h3>${p.name}</h3>
-      <div class="price">R$ ${p.price.toFixed(2)}</div>
-      <div class="btn" onclick="openProduct(${i})">Comprar</div>
-    </div>
-  </div>`;
-});
-
-function openProduct(i){
- current=products[i];
- document.getElementById("pName").innerText=current.name;
- document.getElementById("pImg").src=current.img;
- document.getElementById("pPrice").innerText="R$ "+current.price.toFixed(2);
- const f=document.getElementById("pFlavor");
- f.innerHTML="";
- current.flavors.forEach(x=>f.innerHTML+=`<option>${x}</option>`);
- document.getElementById("productModal").style.display="block";
+function openModal(){
+  document.getElementById("modal").style.display="block";
 }
-
-function closeProduct(){document.getElementById("productModal").style.display="none"}
-
-function addToCart(){
- cart.push({
-  name:current.name,
-  price:current.price,
-  qty:parseInt(document.getElementById("pQty").value)
- });
- closeProduct();
- openCart();
+function closeModal(e){
+  if(!e || e.target.id==="modal"){
+    document.getElementById("modal").style.display="none";
+  }
 }
-
-function openCart(){
- let html="",total=0;
- cart.forEach(i=>{
-  total+=i.price*i.qty;
-  html+=`<div class="cart-item">${i.name} x${i.qty}</div>`;
- });
- document.getElementById("cartItems").innerHTML=html;
- document.getElementById("cartTotal").innerText="Total: R$ "+total.toFixed(2);
- document.getElementById("cartModal").style.display="block";
-}
-
-function closeCart(){document.getElementById("cartModal").style.display="none"}
-function openPayment(){closeCart();document.getElementById("payModal").style.display="block"}
-function closePay(){document.getElementById("payModal").style.display="none"}
 </script>
 
 </body>
